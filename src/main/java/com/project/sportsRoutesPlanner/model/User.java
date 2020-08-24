@@ -22,7 +22,7 @@ public class User {
     private String username; //nickname
     private String emailAddress;
     private Integer age;
-    private String nrTell;
+    private String phoneNr;
     private String password;
     private Integer history;
 

@@ -23,4 +23,8 @@ public class Route {
 
     private List<Photo> photoList;
 
+    private RouteCategory routeCategory;
+
+    private DifficultyLevel difficultyLevel;
+
 }

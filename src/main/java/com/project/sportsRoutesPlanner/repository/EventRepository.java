@@ -1,4 +1,6 @@
 package com.project.sportsRoutesPlanner.repository;
 
-public interface EventRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EventRepository extends JpaRepository {
 }
