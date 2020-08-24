@@ -5,22 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "routes")
-public class Route {
+@Table(name = "photos")
+public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // start from 1 on each table
-    private Integer routeId;
-
-    private double distance;
-    private double maxAltitude;
-    private double duration;
-
-    private List<Photo> photoList;
-
+    private Integer photoId;
 }
