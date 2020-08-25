@@ -20,6 +20,7 @@ private int maxParticipants;
 private Date signUpDeadline;
 private Date startEvent;
 private Date endEvent;
+private double price;
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)

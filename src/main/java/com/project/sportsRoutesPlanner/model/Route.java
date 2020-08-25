@@ -1,5 +1,6 @@
 package com.project.sportsRoutesPlanner.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,9 @@ public class Route {
     private RouteCategory routeCategory;
 
     private DifficultyLevel difficultyLevel;
+
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Event event;
 
 }
