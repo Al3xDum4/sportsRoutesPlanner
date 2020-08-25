@@ -1,6 +1,5 @@
 package com.project.sportsRoutesPlanner.config;
 
-import com.project.sportsRoutesPlanner.model.Member;
 import com.project.sportsRoutesPlanner.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,4 +26,12 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
+    private String firstName;
+    private String lastName;
+    private Integer age;
+    private String phoneNo;
+    private Integer history;
+
+    @ManyToMany
+    private List<Event> eventList;
 }

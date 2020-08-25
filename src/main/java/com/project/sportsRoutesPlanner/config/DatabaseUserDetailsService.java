@@ -1,7 +1,6 @@
 package com.project.sportsRoutesPlanner.config;
 
 import com.project.sportsRoutesPlanner.model.PendingUser;
-import com.project.sportsRoutesPlanner.model.Member;
 import com.project.sportsRoutesPlanner.repository.PendingUserRepository;
 import com.project.sportsRoutesPlanner.repository.UserRepository;
 import lombok.Getter;
