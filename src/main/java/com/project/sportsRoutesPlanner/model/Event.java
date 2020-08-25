@@ -23,8 +23,6 @@ public class Event {
     private Date endEvent;
     private Integer price;
 
-    private Guide guide;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int eventId;
@@ -35,7 +33,7 @@ public class Event {
 
     @ManyToMany
     @JsonIgnore
-    @JoinTable(name = "event_users", joinColumns = @JoinColumn(name = "event_id"),
+    @JoinTable(name = "event_user", joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> usersList;
 

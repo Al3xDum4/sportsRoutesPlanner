@@ -32,6 +32,6 @@ public class Route {
 
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     @JsonIgnore
-    private Event event;
+    private List<Event> event;
 
 }

@@ -31,7 +31,10 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "usersList")
     @JsonIgnore
     private List<Event> eventsList;
+
+    @OneToOne(mappedBy = "user")
+    private PendingUser pendingUser;
 }
