@@ -28,6 +28,6 @@ private int eventId;
 
 private Route route;
 private Guide guide;
-private List<Member> members;
+private List<User> users;
 
 }

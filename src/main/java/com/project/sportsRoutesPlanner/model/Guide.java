@@ -15,7 +15,7 @@ public class Guide {
     private String lastName;
     private Integer age;
     private String phoneNo;
-    private GuideLevel guideLevel;
+
 
 
     @Id
