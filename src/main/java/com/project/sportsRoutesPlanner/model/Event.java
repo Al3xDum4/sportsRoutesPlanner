@@ -1,5 +1,6 @@
 package com.project.sportsRoutesPlanner.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,18 +17,26 @@ import java.util.List;
 @Table(name = "events")
 public class Event {
 
-private int maxParticipants;
-private Date signUpDeadline;
-private Date startEvent;
-private Date endEvent;
-private double price;
+    private Integer maxParticipants;
+    private Date signUpDeadline;
+    private Date startEvent;
+    private Date endEvent;
+    private Integer price;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int eventId;
+    private Guide guide;
 
-private Route route;
-private Guide guide;
-private List<User> users;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int eventId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Route route;
+
+    @ManyToMany
+    @JsonIgnore
+    @JoinTable(name = "event_users", joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> usersList;
 
 }
