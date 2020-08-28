@@ -4,8 +4,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="../../static/css/security.css" th:href="@{../../static/css/security.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="box">
+    <h1 id="title">Register</h1>
+
+    <form class="form" th:action="@{/register}" autocomplete="off" method="post">
+        <div class="input-box">
+            <i class="fas fa-user-alt"></i>
+            <input class="input-field" type="text" id="first-name" name="firstname" placeholder="First name" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-user-alt"></i>
+            <input class="input-field" type="text" id="last-name" name="lasttname" placeholder="Last name" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-hashtag"></i>
+            <input class="input-field" type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-envelope"></i>
+            <input class="input-field" type="email" id="email" name="email" placeholder="Email address" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-forward"></i>
+            <select class="select-field" id="age" th:filed="*{user.age}" required>
+                <option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}"
+                        th:text="${i}">
+                    Your age</option>
+            </select>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-mobile"></i>
+            <input class="input-field" type="tel" id="phone" name="phone" placeholder="+.. ... ... ..."
+                   pattern="+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{3}" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input class="input-field" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <br/>
+
+        <button type="submit" value="Register">Register</button>
+        <bt/>
+        <p id="login-register"><b>You already have an account ?</b>
+            <a th:href="@{/login}"><b>Login</b></a>
+        </p>
+    </form>
+</div>
 
 </body>
 </html>
+
+<script>
+    var serverContext = [[@{/}]];
+    function resetPass(){
+    var email = $("#email").val();
+    $.post(serverContext + "user/resetPassword",{email: email} ,
+      function(data){
+          window.location.href =
+           serverContext + "login?message=" + data.message;
+    })
+</script>

@@ -1,0 +1,91 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url('../img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-position: 70% 30%;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+.box {
+    width: 30%;
+    height: auto;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: black;
+
+}
+
+::placeholder {
+    color: black;
+}
+
+#title {
+    text-align: center;
+}
+
+.input-box {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    align-items: center;
+}
+
+.icon {
+    min-width: 50px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+button[type=submit] {
+    width: 50%;
+    align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #001f16;
+    opacity: 0.6;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+button[type=submit]:hover {
+    background-color: #232100;
+    opacity: 0.9;
+}
+
+#login-register {
+    text-align: center;
+}
+
+a {
+    color: blue;
+}
+

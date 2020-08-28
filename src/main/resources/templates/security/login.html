@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
+    <link href="../../static/css/security.css" th:href="@{../../static/css/security.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="box">
+    <h1 id="title">Login</h1>
 
+    <form class="form" th:action="@{/login}" autocomplete="off" method="post">
+        <br/>
+        <div class="input-box">
+            <i class="fas fa-user-alt"></i>
+            <input class="input-field" type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <br/>
+
+        <br/>
+        <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input class="input-field" type="password" id="password" name="password" placeholder="Password"
+                   required>
+        </div>
+        <br/>
+
+        <button type="submit" value="Login">Login</button>
+        <bt/>
+        <p id="login-register"><b>Not registered ?</b>
+            <a th:href="@{/register}"><b>Register</b></a>
+        </p>
+    </form>
+</div>
 </body>
 </html>
+
+<script>
+    var serverContext = [[@{/}]];
+    function resetPass(){
+    var email = $("#email").val();
+    $.post(serverContext + "user/resetPassword",{email: email} ,
+      function(data){
+          window.location.href =
+           serverContext + "login?message=" + data.message;
+    })
+</script>
