@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -40,6 +41,7 @@ public class RegisterController {
         return new BCryptPasswordEncoder();
     }
 
+    @PostMapping("/register")
     public String registerUser(String username, String password, String emailAddress, String firstName,
                                String lastName, Integer age, String phoneNo, HttpServletRequest request) {
         String validationUrl = "https://" + request.getServerName() + request.getContextPath();
