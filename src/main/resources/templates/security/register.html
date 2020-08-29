@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
     <link href="../../static/css/security.css" th:href="@{../../static/css/security.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
 </head>
@@ -38,7 +38,7 @@
 
         <div class="input-box">
             <i class="fas fa-forward"></i>
-            <select class="select-field" id="age" th:filed="*{user.age}" required>
+            <select class="select-field" id="age" required>
                 <option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}"
                         th:text="${i}">
                     Your age</option>
