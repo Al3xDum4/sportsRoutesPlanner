@@ -41,7 +41,6 @@ public class SecurityConfig {
                     .authorizeRequests()
                     //do not allow anything else
                     .antMatchers("/api/login").permitAll()
-                    .antMatchers("/css/**", "/img/**").permitAll()
                     .anyRequest().authenticated();
 
             http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -73,6 +72,8 @@ public class SecurityConfig {
                         .antMatchers("/login").permitAll()
                         .antMatchers("/register").permitAll()
                         .antMatchers("/userValidation").permitAll()
+                        .antMatchers("/css/**").permitAll()
+                        .antMatchers("/img/**").permitAll()
                         .antMatchers("/").permitAll()
                         .anyRequest().authenticated()
                         .and()
