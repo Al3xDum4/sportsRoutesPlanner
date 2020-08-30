@@ -1,8 +1,7 @@
 package com.project.sportsRoutesPlanner.service;
 
-import com.project.sportsRoutesPlanner.model.Route;
+import com.project.sportsRoutesPlanner.model.Role;
 import com.project.sportsRoutesPlanner.model.User;
-import com.project.sportsRoutesPlanner.repository.RouteRepository;
 import com.project.sportsRoutesPlanner.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,11 @@ public class UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    public List<User> findUserByRole() {
+        return userRepository.findAll();
+    }
+
 
     public void save(User user) {
         userRepository.save(user);

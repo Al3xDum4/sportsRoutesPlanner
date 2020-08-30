@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Guide</title>
+    <link href="../../static/css/guide.css" th:href="@{../../static/css/guide.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="box">
+    <h1 id="title">Add Guide</h1>
+
+    <form class="form" th:action="@{/addguide}" autocomplete="off" method="post">
+        <div class="input-box">
+            <i class="fas fa-user-alt"></i>
+            <input class="input-field" type="text" id="firstName" name="firstName" placeholder="First name" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-user-alt"></i>
+            <input class="input-field" type="text" id="lastName" name="lastName" placeholder="Last name" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-forward"></i>
+            <select class="select-field" id="age" required>
+                <option th:each="i : ${#numbers.sequence(18, 60)}" th:value="${i}"
+                        th:text="${i}">
+                    Age</option>
+            </select>
+        </div>
+        <br/>
+        <div class="input-box">
+            <i class="fas fa-envelope"></i>
+            <input class="input-field" type="email" id="emailAddress" name="emailAddress" placeholder="Email address" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <i class="fas fa-mobile"></i>
+            <input class="input-field" type="tel" id="phoneNo" name="phoneNo" placeholder="+.. ... ... ..."
+                   pattern="+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{3}" required>
+        </div>
+        <br/>
+
+        <button type="submit" value="Add">Add</button>
+        <bt/>
+
+    </form>
+</div>
 
 </body>
 </html>
+
