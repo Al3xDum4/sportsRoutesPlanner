@@ -37,17 +37,11 @@ public class EventController {
         return "redirect:/allevents";
     }
 
-    @GetMapping("/guide/editstudent/{id}")
+    @GetMapping("/guide/editevent/{id}")
     public String editEvent(Model model, @PathVariable Integer id) {
         Event event = eventService.findById(id);
         model.addAttribute("event", event);
         return "event/editevent";
-    }
-
-    @PostMapping("/guide/editevent/{id}")
-    public String editEvent(@ModelAttribute Event event, @PathVariable Integer id) {
-        eventService.save(event);
-        return "redirect:/allevents";
     }
 
     @GetMapping("/guide/deleteevent/{id}")
