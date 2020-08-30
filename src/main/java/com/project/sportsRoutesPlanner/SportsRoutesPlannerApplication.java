@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class SportsRoutesPlannerApplication implements CommandLineRunner {
+public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvcConfigurer {
 
     @Autowired
     private EventRepository eventRepository;
@@ -29,6 +31,11 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
 
 }
