@@ -41,7 +41,7 @@ public class SecurityConfig {
                     .authorizeRequests()
                     //do not allow anything else
                     .antMatchers("/api/login").permitAll()
-                    .antMatchers("/", "/css/**").permitAll()
+                    .antMatchers("/css/**", "/img/**").permitAll()
                     .anyRequest().authenticated();
 
             http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
