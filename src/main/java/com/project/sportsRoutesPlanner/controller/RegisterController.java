@@ -1,6 +1,7 @@
 package com.project.sportsRoutesPlanner.controller;
 
 import com.project.sportsRoutesPlanner.model.PendingUser;
+import com.project.sportsRoutesPlanner.model.Role;
 import com.project.sportsRoutesPlanner.model.User;
 import com.project.sportsRoutesPlanner.repository.PendingUserRepository;
 import com.project.sportsRoutesPlanner.service.JavaMailSenderService;
@@ -53,6 +54,7 @@ public class RegisterController {
         user.setLastName(lastName);
         user.setAge(age);
         user.setPhoneNo(phoneNo);
+        user.setRole(Role.MEMBER);
         userService.save(user);
 
         PendingUser pendingUser = new PendingUser();
