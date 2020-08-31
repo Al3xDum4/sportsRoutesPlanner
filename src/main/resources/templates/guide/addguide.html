@@ -6,6 +6,12 @@
     <title>Add Guide</title>
     <link href="../../static/css/guide.css" th:href="@{/css/guide.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 </head>
 <body>
 <div class="box">
@@ -26,7 +32,7 @@
 
         <div class="input-box">
             <i class="fas fa-forward"></i>
-            <select class="select-field" id="age" required>
+            <select class="select-field" id="age" name="age" required>
                 <option th:each="i : ${#numbers.sequence(18, 60)}" th:value="${i}"
                         th:text="${i}">
                     Age</option>

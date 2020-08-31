@@ -32,7 +32,7 @@ public class LoginRestController {
     }
 
     @PostMapping
-    public ResponseEntity createToken(@RequestBody User user){
+    public ResponseEntity createToken(@RequestBody User user) {
         authentificationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         UserDetails userDetails = databaseUserDetailsService.loadUserByUsername(user.getUsername());
 
