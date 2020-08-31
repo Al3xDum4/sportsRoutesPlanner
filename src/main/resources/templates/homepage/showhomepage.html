@@ -41,62 +41,62 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-<!--$('.carousel-event').slick({-->
-<!--    arrows: true,-->
-<!--    dots: false,-->
-<!--    infinite: true,-->
-<!--    speed: 300,-->
-<!--    slidesToShow: 1,-->
-<!--    centerMode: true,-->
-<!--    variableWidth: true,-->
-<!--    prevArrow: $('.prev'),-->
-<!--    nextArrow: $('.next')-->
-
-<!--})-->
-
-$(document).ready(function() {
-  $('.carousel-event').slick({
-
+$('.carousel-event').slick({
+    arrows: true,
+    dots: false,
     infinite: true,
     speed: 300,
     slidesToShow: 1,
-    slidesToScroll: 1,
-    cssEase: 'linear',
-    arrows: true,
-    dots: false,
-    responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        }
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        }
-      }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
+    centerMode: true,
+    variableWidth: true,
+    prevArrow: $('.prev'),
+    nextArrow: $('.next')
+
 });
+
+<!--$(document).ready(function() {-->
+<!--  $('.carousel-event').slick({-->
+
+<!--    infinite: true,-->
+<!--    speed: 300,-->
+<!--    slidesToShow: 1,-->
+<!--    slidesToScroll: 1,-->
+<!--    cssEase: 'linear',-->
+<!--    arrows: true,-->
+<!--    dots: false,-->
+<!--    responsive: [{-->
+<!--        breakpoint: 1024,-->
+<!--        settings: {-->
+<!--          slidesToShow: 1,-->
+<!--          slidesToScroll: 1,-->
+<!--          infinite: true,-->
+<!--          dots: false,-->
+<!--        }-->
+<!--      },-->
+<!--      {-->
+<!--        breakpoint: 800,-->
+<!--        settings: {-->
+<!--          slidesToShow: 1,-->
+<!--          slidesToScroll: 1,-->
+<!--          infinite: true,-->
+<!--          dots: false,-->
+<!--        }-->
+<!--      },-->
+<!--      {-->
+<!--        breakpoint: 480,-->
+<!--        settings: {-->
+<!--          slidesToShow: 1,-->
+<!--          slidesToScroll: 1,-->
+<!--          infinite: true,-->
+<!--          dots: false,-->
+<!--        }-->
+<!--      }-->
+<!--      // You can unslick at a given breakpoint now by adding:-->
+<!--      // settings: "unslick"-->
+<!--      // instead of a settings object-->
+<!--    ]-->
+<!--  });-->
+<!--});-->
 
 
 
