@@ -32,10 +32,10 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
     @Autowired
     private PendingUserRepository pendingUserRepository;
 
-    @Bean
-    private PasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder encoder(){
+//        return new BCryptPasswordEncoder();
+//    }
 
 
 	public static void main(String[] args) { SpringApplication.run(SportsRoutesPlannerApplication.class, args); }
@@ -46,7 +46,7 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
 	   user.setFirstName("Andreea");
 	   user.setLastName("Sperdea");
 	   user.setUsername("andreea");
-	   user.setPassword(encoder().encode("1234"));
+	   user.setPassword("1234");
 	   user.setAge(35);
 	   user.setEmailAddress("a@b.com");
 	   user.setPhoneNo("0733");
