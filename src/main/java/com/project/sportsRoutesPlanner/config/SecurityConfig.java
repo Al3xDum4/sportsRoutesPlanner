@@ -69,21 +69,22 @@ public class SecurityConfig {
 
                 http
                         .authorizeRequests()
-                        .antMatchers("/login").permitAll()
-                        .antMatchers("/register").permitAll()
-                        .antMatchers("/userValidation").permitAll()
-                        .antMatchers("/css/**").permitAll()
-                        .antMatchers("/img/**").permitAll()
-                        .antMatchers("/").permitAll()
-                        .anyRequest().authenticated()
-                        .and()
+                            .antMatchers("/login").permitAll()
+                            .antMatchers("/register").permitAll()
+                            .antMatchers("/showhomepage").permitAll()
+                            .antMatchers("/userValidation").permitAll()
+                            .antMatchers("/css/**").permitAll()
+                            .antMatchers("/img/**").permitAll()
+                            .antMatchers("/").permitAll()
+                            .anyRequest().authenticated()
+                            .and()
                         .formLogin()
-                        .loginPage("/login").permitAll()
-                        .and()
+                            .loginPage("/login").permitAll()
+                            .and()
                         .logout()
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
-                        .permitAll();
+                            .logoutUrl("/logout")
+                            .logoutSuccessUrl("/")
+                            .permitAll();
             }
 
             @Override
