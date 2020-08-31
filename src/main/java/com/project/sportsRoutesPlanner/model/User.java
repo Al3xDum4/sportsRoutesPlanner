@@ -27,8 +27,6 @@ public class User {
     private Integer age;
     private String phoneNo;
     private Integer history;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     private Role role;
 
     @ManyToMany(mappedBy = "usersList")

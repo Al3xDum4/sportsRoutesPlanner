@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--    &lt;!&ndash;Import materialize.css&ndash;&gt;-->
+<!--    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!--    &lt;!&ndash; Compiled and minified JavaScript &ndash;&gt;-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+
+    <title>Guides view</title>
+    <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+
+    <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
 
+<!--div class container ocupa 75% din pagina. centreaza tabelul pe pagina-->
+<div class="container">
+    <h1>Our Guides</h1>
+    <a th:href="@{/addguide}">
+        <i class="small material-icons">add</i>
+    </a>
+    <table>
+        <thead>
+        <tr>
+            <td>
+                Guide Id
+            </td>
+            <td>
+                 First Name
+            </td>
+            <td>
+                Last Name
+            </td>
+            <td>
+                Action
+            </td>
+        </tr>
+        </thead>
+        <tbody th:each="g:${guides}">
+
+        <tr>
+            <td th:text="${g.guideId}"></td>
+            <td th:text="${g.firstName}"></td>
+            <td th:text="${g.lastName}"></td>
+            <td>
+                <a th:href="@{/editguide/{id}(id=${g.guideId})}">
+                    <i class="small material-icons">edit</i>
+                </a>
+                <a th:href="@{/deleteguide/{id}(id=${g.guideId})}">
+                    <i class="small material-icons">delete</i>
+                </a>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+</div>
 </body>
 </html>
