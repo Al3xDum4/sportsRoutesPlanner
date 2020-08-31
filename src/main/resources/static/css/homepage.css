@@ -7,3 +7,61 @@ body {
     background-size: cover;
     opacity: 0.8;
 }
+
+.slick-slide {
+    width: 10vw;
+    box-sizing: border-box;
+}
+
+.carousel-event img {
+    height: 150px;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  position: relative;
+  height: 100%;
+  min-height: 1px;
+}
+.home-slick-slider>.slick-prev {
+  left: 10px;
+  z-index: 1;
+}
+.home-slick-slider>.slick-next {
+  right: 10px;
+  z-index: 1;
+}
+.slick-prev:before {
+  content: "\f104";
+  font-family: FontAwesome;
+  font-size: 50px;
+  color: #0a5185 !important;
+  z-index: 100;
+}
+
+.slick-next:before {
+  content: "\f105";
+  font-family: FontAwesome;
+  font-size: 50px;
+  color: #0a5185 !important;
+  z-index: 100;
+}
+
+.home-slick-text {
+  position: absolute;
+  bottom: 50%;
+  left: 70%;
+  margin-right: 40%;
+  color: black;
+}
+
+.home-slick-text h1 {
+  color: #9FA8A6;
+  text-align: right;
+}
+
+.home-slick-text p {
+  color: #9FA8A6 !important;
+  text-align: right;
+}
