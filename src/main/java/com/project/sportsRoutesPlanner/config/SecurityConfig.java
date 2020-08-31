@@ -69,7 +69,6 @@ public class SecurityConfig {
 
                 http
                         .authorizeRequests()
-                            .antMatchers("/resources/**").permitAll()
                             .antMatchers("/login").permitAll()
                             .antMatchers("/register").permitAll()
                             .antMatchers("/showhomepage").permitAll()
