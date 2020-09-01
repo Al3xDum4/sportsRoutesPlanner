@@ -35,14 +35,3 @@
 </div>
 </body>
 </html>
-
-<script>
-    var serverContext = [[@{/}]];
-    function resetPass(){
-    var email = $("#email").val();
-    $.post(serverContext + "user/resetPassword",{email: email} ,
-      function(data){
-          window.location.href =
-           serverContext + "login?message=" + data.message;
-    })
-</script>

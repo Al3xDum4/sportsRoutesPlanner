@@ -16,3 +16,12 @@ body {
 .carousel-event img {
     height: 150px;
 }
+
+.home-slick-slider>.slick-prev {
+  left: 10px;
+  z-index: 1;
+}
+.home-slick-slider>.slick-next {
+  right: 10px;
+  z-index: 1;
+}
