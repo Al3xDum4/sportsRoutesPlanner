@@ -30,8 +30,8 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
     private PhotoRepository photoRepository;
     @Autowired
     private JavaMailSenderService javaMailSenderService;
-    @Autowired
-    private PendingUserRepository pendingUserRepository;
+//    @Autowired
+//    private PendingUserRepository pendingUserRepository;
 
 	public static void main(String[] args) { SpringApplication.run(SportsRoutesPlannerApplication.class, args); }
 
@@ -47,7 +47,9 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
 //	   user.setPhoneNo("0733");
 //	   user.setRole(Role.ADMIN);
 //	   userRepository.save(user);
-//	   pendingUserRepository.deleteById(1);
+//   pendingUserRepository.deleteById(1);
+
+
     }
 
     @Override

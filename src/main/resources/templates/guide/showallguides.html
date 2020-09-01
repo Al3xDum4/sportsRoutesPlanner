@@ -35,10 +35,25 @@
                 Guide Id
             </td>
             <td>
+                Username
+            </td>
+            <td>
                  First Name
             </td>
             <td>
                 Last Name
+            </td>
+            <td>
+                Age
+            </td>
+            <td>
+                Email Address
+            </td>
+            <td>
+                Phone No.
+            </td>
+            <td>
+                Role
             </td>
             <td>
                 Action
@@ -48,14 +63,19 @@
         <tbody th:each="g:${guides}">
 
         <tr>
-            <td th:text="${g.guideId}"></td>
+            <td th:text="${g.userId}"></td>
+            <td th:text="${g.username}"></td>
             <td th:text="${g.firstName}"></td>
             <td th:text="${g.lastName}"></td>
+            <td th:text="${g.age}"></td>
+            <td th:text="${g.emailAddress}"></td>
+            <td th:text="${g.phoneNo}"></td>
+            <td th:text="${g.role}"></td>
             <td>
-                <a th:href="@{/editguide/{id}(id=${g.guideId})}">
+                <a th:href="@{/editguide/{id}(id=${g.userId})}">
                     <i class="small material-icons">edit</i>
                 </a>
-                <a th:href="@{/deleteguide/{id}(id=${g.guideId})}">
+                <a th:href="@{/deleteguide/{id}(id=${g.userId})}">
                     <i class="small material-icons">delete</i>
                 </a>
             </td>
