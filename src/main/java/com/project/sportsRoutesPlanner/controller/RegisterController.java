@@ -60,7 +60,7 @@ public class RegisterController {
         PendingUser pendingUser = new PendingUser();
         String activationCode = randomStringGenerator.getAlphaNumericString(20);
         pendingUser.setActivationCode(activationCode);
-        javaMailSenderService.sendHTML("buhaidebalta.15@gmail.com", user.getEmailAddress(),
+        javaMailSenderService.sendMail("rock.road.34@gmail.com", user.getEmailAddress(),
                 "Please confirm account", randomStringGenerator.linkCreator(activationCode, validationUrl));
         pendingUser.setUser(user);
         pendingUserRepository.save(pendingUser);

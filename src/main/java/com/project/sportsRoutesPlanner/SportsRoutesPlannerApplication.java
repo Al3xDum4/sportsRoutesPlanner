@@ -4,6 +4,7 @@ import com.project.sportsRoutesPlanner.model.Role;
 import com.project.sportsRoutesPlanner.model.User;
 import com.project.sportsRoutesPlanner.repository.*;
 import com.project.sportsRoutesPlanner.service.JavaMailSenderService;
+import it.ozimov.springboot.mail.configuration.EnableEmailTools;
 import net.bytebuddy.implementation.bind.annotation.BindingPriority;
 import org.apache.catalina.realm.X509UsernameRetriever;
 import org.springframework.beans.factory.annotation.Autowired;
