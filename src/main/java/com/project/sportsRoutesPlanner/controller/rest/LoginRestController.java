@@ -25,6 +25,7 @@ public class LoginRestController {
     @Autowired
     private DatabaseUserDetailsService databaseUserDetailsService;
 
+    @Autowired
     public LoginRestController(AuthenticationManager authentificationManager, JwtProvider jwtProvider, DatabaseUserDetailsService databaseUserDetailsService) {
         this.authentificationManager = authentificationManager;
         this.jwtProvider = jwtProvider;
