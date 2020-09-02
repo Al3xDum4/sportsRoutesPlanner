@@ -3,68 +3,48 @@
 <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--    &lt;!&ndash;Import materialize.css&ndash;&gt;-->
-<!--    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>-->
+    <meta charset="UTF-8">
+    <!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<!--    &lt;!&ndash; Compiled and minified JavaScript &ndash;&gt;-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+    <link href="../../static/css/showguides.css" th:href="@{/css/showguides.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
 
     <title>Guides view</title>
     <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet"/>
-    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
 
     <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
 
-<!--div class container ocupa 75% din pagina. centreaza tabelul pe pagina-->
-<div class="container">
+<div class="box">
     <h1>Our Guides</h1>
     <a th:href="@{/addguide}">
-        <i class="small material-icons">add</i>
+        <i class="small material-icons" style="color:black">add</i>
     </a>
-    <table>
+    <table id="guides">
         <thead>
         <tr>
-            <td>
-                Guide Id
-            </td>
-            <td>
-                Username
-            </td>
-            <td>
-                 First Name
-            </td>
-            <td>
-                Last Name
-            </td>
-            <td>
-                Age
-            </td>
-            <td>
-                Email Address
-            </td>
-            <td>
-                Phone No.
-            </td>
-            <td>
-                Role
-            </td>
-            <td>
-                Action
-            </td>
+            <th>Guide Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Email Address</th>
+            <th>Phone No.</th>
+            <th>Role</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody th:each="g:${guides}">
 
         <tr>
             <td th:text="${g.userId}"></td>
-            <td th:text="${g.username}"></td>
             <td th:text="${g.firstName}"></td>
             <td th:text="${g.lastName}"></td>
             <td th:text="${g.age}"></td>
@@ -73,10 +53,10 @@
             <td th:text="${g.role}"></td>
             <td>
                 <a th:href="@{/editguide/{id}(id=${g.userId})}">
-                    <i class="small material-icons">edit</i>
+                    <i class="small material-icons" style="color:black">edit</i>
                 </a>
                 <a th:href="@{/deleteguide/{id}(id=${g.userId})}">
-                    <i class="small material-icons">delete</i>
+                    <i class="small material-icons" style="color:red">delete</i>
                 </a>
             </td>
         </tr>

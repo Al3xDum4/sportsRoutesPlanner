@@ -3,9 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Add Guide</title>
-    <link href="../../static/css/guide.css" th:href="@{/css/guide.css}" rel="stylesheet"/>
+    <link href="../../static/css/add_guide.css" th:href="@{/css/add_guide.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <title>Add Guide</title>
+    <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet"/>
+    <nav th:insert="menu.html::menu_nav"></nav>
     <script>
     $(document).ready(function() {
         $('select').material_select();
