@@ -4,8 +4,8 @@ import com.project.sportsRoutesPlanner.model.PendingUser;
 import com.project.sportsRoutesPlanner.model.Role;
 import com.project.sportsRoutesPlanner.model.User;
 import com.project.sportsRoutesPlanner.repository.PendingUserRepository;
-import com.project.sportsRoutesPlanner.service.JavaMailSenderService;
 import com.project.sportsRoutesPlanner.service.RandomStringGenerator;
+import com.project.sportsRoutesPlanner.service.SendGridEmailService;
 import com.project.sportsRoutesPlanner.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +30,7 @@ public class RegisterController {
     private RandomStringGenerator randomStringGenerator;
 
     @Autowired
-    private JavaMailSenderService javaMailSenderService;
+    private SendGridEmailService sendGridEmailService;
 
     @GetMapping("/register")
     public String registerUser() {
@@ -60,7 +60,7 @@ public class RegisterController {
         PendingUser pendingUser = new PendingUser();
         String activationCode = randomStringGenerator.getAlphaNumericString(20);
         pendingUser.setActivationCode(activationCode);
-        javaMailSenderService.sendHTML("rock.road.34@gmail.com", user.getEmailAddress(),
+        sendGridEmailService.sendHTML("rock.road.34@gmail.com", user.getEmailAddress(),
                 "Please confirm account", randomStringGenerator.linkCreator(activationCode, validationUrl));
         pendingUser.setUser(user);
         pendingUserRepository.save(pendingUser);

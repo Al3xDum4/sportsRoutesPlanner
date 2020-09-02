@@ -3,6 +3,7 @@ package com.project.sportsRoutesPlanner;
 import com.project.sportsRoutesPlanner.model.Role;
 import com.project.sportsRoutesPlanner.model.User;
 import com.project.sportsRoutesPlanner.repository.*;
+import com.project.sportsRoutesPlanner.service.SendGridEmailService;
 import com.sendgrid.Method;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
@@ -35,30 +36,14 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
     private UserRepository userRepository;
     @Autowired
     private PhotoRepository photoRepository;
-//    @Autowired
-//    private PendingUserRepository pendingUserRepository;
+    @Autowired
+    private SendGridEmailService sendGridEmailService;
+    @Autowired
+    private PendingUserRepository pendingUserRepository;
 
-	public static void main(String[] args) throws IOException { SpringApplication.run(SportsRoutesPlannerApplication.class, args);
-        Email from = new Email("test@example.com");
-        String subject = "Hello World from the SendGrid Java Library!";
-        Email to = new Email("test@example.com");
-        Content content = new Content("text/plain", "Hello, Email!");
-        Mail mail = new Mail(from, subject, to, content);
-
-        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-        Request request = new Request();
-        try {
-            request.setMethod(Method.POST);
-            request.setEndpoint("mail/send");
-            request.setBody(mail.build());
-            Response response = sg.api(request);
-            System.out.println(response.getStatusCode());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());
-        } catch (IOException ex) {
-            throw ex;
-        }
-	}
+    public static void main(String[] args) throws IOException {
+        SpringApplication.run(SportsRoutesPlannerApplication.class, args);
+    }
 
     @Override
     public void run(String... args) throws Exception {
