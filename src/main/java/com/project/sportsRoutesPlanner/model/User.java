@@ -33,6 +33,6 @@ public class User {
     @JsonIgnore
     private List<Event> eventsList;
 
-//    @OneToOne(mappedBy = "user")
-//    private PendingUser pendingUser;
+    @OneToOne(mappedBy = "user")
+    private PendingUser pendingUser;
 }

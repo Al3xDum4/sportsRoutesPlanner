@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/login")
 public class LoginRestController {
     @Autowired
-    private final AuthenticationManager authentificationManager;
+    private final AuthenticationManager authenticationManagerManager;
 
     @Autowired
     private JwtProvider jwtProvider;
@@ -26,15 +26,15 @@ public class LoginRestController {
     private DatabaseUserDetailsService databaseUserDetailsService;
 
     @Autowired
-    public LoginRestController(AuthenticationManager authentificationManager, JwtProvider jwtProvider, DatabaseUserDetailsService databaseUserDetailsService) {
-        this.authentificationManager = authentificationManager;
+    public LoginRestController(AuthenticationManager authenticationManager, JwtProvider jwtProvider, DatabaseUserDetailsService databaseUserDetailsService) {
+        this.authenticationManagerManager = authenticationManager;
         this.jwtProvider = jwtProvider;
         this.databaseUserDetailsService = databaseUserDetailsService;
     }
 
     @PostMapping
     public ResponseEntity createToken(@RequestBody User user) {
-        authentificationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        authenticationManagerManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         UserDetails userDetails = databaseUserDetailsService.loadUserByUsername(user.getUsername());
 
         String token = jwtProvider.createToken(userDetails.getUsername());

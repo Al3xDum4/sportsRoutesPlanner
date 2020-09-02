@@ -36,7 +36,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("Username" + username);
+        log.info("Username:" + username);
         Optional<PendingUser> optional = pendingUserRepository.findByUsername(username);
         if (optional.isPresent()) {
             log.info(optional.get().getActivationCode());

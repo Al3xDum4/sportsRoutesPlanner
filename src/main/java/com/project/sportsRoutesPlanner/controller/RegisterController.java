@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Controller
-public class RegisterController {
+public class    RegisterController {
     @Autowired
     private UserService userService;
 
