@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body {
     height: 100%;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     background-repeat: no-repeat;
     background-position: 25% 75%;
     background-size: cover;
+    font-family: 'Roboto', sans-serif;
     opacity: 0.8;
 }
 
