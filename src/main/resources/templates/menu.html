@@ -10,9 +10,9 @@
         <ul class="menu">
             <li><a th:href="@{/homeallevents}" class="menu-item">Home</a></li>
             <li class="dropdown">
-                <a class="droplink">Routes
-                    <i class="fa fa-caret-down"></i></a>
-                <div class="dropdown-content">
+                <button class="dropbtn" onclick="myFunction()">Routes
+                    <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content" id="myDropdown">
                     <a th:href="@{/hikingroutes}">Hiking</a>
                     <a th:href="@{/viaferrataroutes}">Via Ferrata</a>
                     <a th:href="@{/cyclingroutes}">Cycling</a>
@@ -29,5 +29,26 @@
         </ul>
     </div>
 </nav>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 </body>
 </html>
+
