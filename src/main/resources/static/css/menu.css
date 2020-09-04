@@ -30,20 +30,18 @@ li a:hover, .dropdown:hover .dropbtn, dropbtn:focus {
 .dropdown {
     float: left;
     overflow: hidden;
-    position: relative;
-    display: inline-block;
 }
 
 .dropdown .dropbtn{
     cursor: pointer;
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
 }
 
 .dropdown-content {
@@ -69,10 +67,6 @@ li a:hover, .dropdown:hover .dropbtn, dropbtn:focus {
 }
 
 .show {
-    display: block;
-}
-
-.dropdown:hover .dropdown-content {
     display: block;
 }
 
