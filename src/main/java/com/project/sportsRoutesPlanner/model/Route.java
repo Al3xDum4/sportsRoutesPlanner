@@ -19,6 +19,10 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // start from 1 on each table
     private Integer routeId;
 
+    private String routeName;
+
+    private String description;
+
     private Double distance;
     private Double maxAltitude;
     private Double duration;

@@ -1,7 +1,9 @@
 package com.project.sportsRoutesPlanner.controller;
 
+import com.project.sportsRoutesPlanner.model.DifficultyLevel;
 import com.project.sportsRoutesPlanner.model.Event;
 import com.project.sportsRoutesPlanner.model.Route;
+import com.project.sportsRoutesPlanner.model.RouteCategory;
 import com.project.sportsRoutesPlanner.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +35,15 @@ public class RouteController {
     }
 
     @PostMapping("/addroute")
-    public String addRoute(@ModelAttribute Route route) {
+    public String addRoute(@ModelAttribute Route route, String routeName, String description, Double distance,
+                           Double maxAltitude, Double duration, String routeCategory, String difficultyLevel) {
+        route.setRouteName(routeName);
+        route.setDescription(description);
+        route.setDistance(distance);
+        route.setMaxAltitude(maxAltitude);
+        route.setDuration(duration);
+        route.setRouteCategory(RouteCategory.valueOf(routeCategory));
+        route.setDifficultyLevel(DifficultyLevel.valueOf(difficultyLevel));
         routeService.save(route);
         return "redirect:/allroutes";
     }

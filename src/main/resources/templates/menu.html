@@ -9,7 +9,16 @@
     <div class="nav-wrapper">
         <ul class="menu">
             <li><a th:href="@{/homeallevents}" class="menu-item">Home</a></li>
-            <li><a th:href="@{/allroutes}" class="menu-item">Routes</a></li>
+            <li class="dropdown">
+                <a class="droplink">Routes
+                    <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a th:href="@{/hikingroutes}">Hiking</a>
+                    <a th:href="@{/viaferrataroutes}">Via Ferrata</a>
+                    <a th:href="@{/cyclingroutes}">Cycling</a>
+                    <a th:href="@{/enduroroutes}">Enduro</a>
+                </div>
+            </li>
             <li><a th:href="@{/allguides}" class="menu-item">Guides</a></li>
             <li><a th:href="@{/allevents}" class="menu-item">Events</a></li>
             <div class="right-side">
