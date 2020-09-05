@@ -10,12 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="../../static/css/showguides.css" th:href="@{/css/showguides.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
-    <script>
-    $(document).ready(function() {
-        $('select').material_select();
-    });
-</script>
-
     <title>Guides view</title>
     <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet"/>
 
@@ -24,46 +18,46 @@
 <body>
 
 <div class="box">
-    <h1>Our Guides</h1>
-    <a th:href="@{/addguide}">
-        <i class="small material-icons" style="color:black">add</i>
-    </a>
-    <table id="guides">
-        <thead>
-        <tr>
-            <th>Guide Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th>Email Address</th>
-            <th>Phone No.</th>
-            <th>Role</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+<h1>Our Guides</h1>
+<a th:href="@{/addguide}">
+    <i class="material-icons" style="font-size:30px;color:black">add</i>
+</a></br>
+</br>
+<table class="tableheader" align="center">
+    <tr>
+        <!--            <th>Guide Id</th>-->
+        <td width="150px">First Name</td>
+        <td width="150px">Last Name</td>
+        <td width="100px">Age</td>
+        <td width="250px">Email Address</td>
+        <td width="200px">Phone No.</td>
+        <!--            <th>Role</th>-->
+        <td width="100px">Action</td>
+    </tr>
+</table>
+<div class ="forbody">
+    <table class="tablebody">
         <tbody th:each="g:${guides}">
-
         <tr>
-            <td th:text="${g.userId}"></td>
-            <td th:text="${g.firstName}"></td>
-            <td th:text="${g.lastName}"></td>
-            <td th:text="${g.age}"></td>
-            <td th:text="${g.emailAddress}"></td>
-            <td th:text="${g.phoneNo}"></td>
-            <td th:text="${g.role}"></td>
-            <td>
+            <!--            <td th:text="${g.userId}"></td>-->
+            <td th:text="${g.firstName}" width="150px" height="50px"></td>
+            <td th:text="${g.lastName}" width="150px"></td>
+            <td th:text="${g.age}"width="100px"></td>
+            <td th:text="${g.emailAddress}" width="250px"></td>
+            <td th:text="${g.phoneNo}" width="200px"></td>
+            <!--            <td th:text="${g.role}"></td>-->
+            <td width="100px">
                 <a th:href="@{/editguide/{id}(id=${g.userId})}">
-                    <i class="small material-icons" style="color:black">edit</i>
+                    <i class="small material-icons" style="color:#595959">edit</i>
                 </a>
                 <a th:href="@{/deleteguide/{id}(id=${g.userId})}">
-                    <i class="small material-icons" style="color:red">delete</i>
+                    <i class="small material-icons" style="color:#f78787">delete</i>
                 </a>
             </td>
         </tr>
-
         </tbody>
-
     </table>
+</div>
 </div>
 </body>
 </html>
