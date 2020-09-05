@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiking Routes</title>
+    <nav th:insert="menu.html::menu_nav"></nav>
+    <link href="../../static/css/routes.css" th:href="@{/css/routes.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="add-box">
+    <a th:href="@{/addroute}">
+        <i class="fas fa-plus" id="add"></i>
+        <span>new route</span>
+    </a>
+    <hr>
+</div>
+<div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
+    <div class="route-card" style="width:25%;">
+        <header class="route-card-header">
+            <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
+        </header>
+
+        <div class="route-card-content">
+            <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+        </div>
+
+        <footer class="route-card-footer">
+            <button class="route-footer">Route details</button>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
