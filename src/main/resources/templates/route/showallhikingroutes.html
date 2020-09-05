@@ -6,6 +6,8 @@
     <nav th:insert="menu.html::menu_nav"></nav>
     <link href="../../static/css/routes.css" th:href="@{/css/routes.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 <div class="add-box">
@@ -15,22 +17,36 @@
     </a>
     <hr>
 </div>
+
 <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
-    <div class="route-card" style="width:25%;">
-        <header class="route-card-header">
-            <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
-        </header>
+    <div class="route-card">
+        <div class="route-card-front">
+            <header class="route-card-header">
+                <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
+            </header>
 
-        <div class="route-card-content">
-            <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <div class="route-card-content">
+                <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat.</p>
+            </div>
+
+            <footer class="route-card-footer">
+                <button type="button" class="route-footer">Route details</button>
+            </footer>
         </div>
-
-        <footer class="route-card-footer">
-            <button type="button" class="route-footer">Route details</button>
-        </footer>
+        <div class="route-card-back">
+            <h1>back</h1>
+        </div>
     </div>
 </div>
 </body>
 </html>
+
+<script>
+ $('.container .route-card').click(function(){
+    $(this).toggleClass("flip");
+});
+</script>
