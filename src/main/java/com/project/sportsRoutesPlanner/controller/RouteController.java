@@ -28,6 +28,13 @@ public class RouteController {
         return "route/showallroutes";
     }
 
+    @GetMapping("allhikingroutes")
+    public String showAllHikingRoutes(Model model){
+        List<Route> hikings = routeService.findHikings();
+        model.addAttribute("hikingroutes", hikings);
+        return "route/showallhikingroutes";
+    }
+
     @GetMapping("/addroute")
     public String addRoute(Model model){
         model.addAttribute("models", new Route());

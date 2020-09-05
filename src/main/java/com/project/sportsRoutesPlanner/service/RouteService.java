@@ -1,10 +1,14 @@
 package com.project.sportsRoutesPlanner.service;
 
+import com.project.sportsRoutesPlanner.model.Role;
 import com.project.sportsRoutesPlanner.model.Route;
+import com.project.sportsRoutesPlanner.model.RouteCategory;
+import com.project.sportsRoutesPlanner.model.User;
 import com.project.sportsRoutesPlanner.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +32,17 @@ public class RouteService {
             return route.get();
         }
         return null;
+    }
+
+    public List<Route> findHikings(){
+        List<Route> routes = routeRepository.findAll();
+        List<Route> hikingRoutes =new ArrayList<>();
+        for (int i = 0; i < routes.size(); i++) {
+            if (((routes.get(i).getRouteCategory()).equals(RouteCategory.HIKING))) {
+                hikingRoutes.add(routes.get(i));
+            }
+        }
+        return hikingRoutes;
     }
 
     public void deleteById(Integer id) {
