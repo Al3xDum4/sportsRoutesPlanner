@@ -32,15 +32,17 @@ public class RouteController {
     @GetMapping("allhikingroutes")
     public String showAllHikingRoutes(Model model){
         List<Route> hikings = routeService.findHikings();
-        List<DifficultyLevel> difficultyLevels = routeService.allDifficultLevels();
+        //List<DifficultyLevel> difficultyLevels = routeService.allDifficultLevels();
         model.addAttribute("hikingroutes", hikings);
-        model.addAttribute("diflevels", difficultyLevels);
+        //model.addAttribute("diflevels", difficultyLevels);
         return "route/showallhikingroutes";
     }
 
     @GetMapping("/addhikingroute")
     public String addRoute(Model model){
+        List<DifficultyLevel> difficultyLevels = routeService.allDifficultLevels();
         model.addAttribute("models", new Route());
+        model.addAttribute("diflevels", difficultyLevels);
         return "route/addroute";
     }
 
