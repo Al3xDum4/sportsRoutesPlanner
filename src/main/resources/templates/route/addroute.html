@@ -8,10 +8,16 @@
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 </head>
 <body>
 <div class="box">
-    <h1 id="title">Register</h1>
+    <h1 id="title">New route</h1>
 
     <form class="form" th:action="@{/addroute}" autocomplete="off" method="post">
         <div class="input-box">
