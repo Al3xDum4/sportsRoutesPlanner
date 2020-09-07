@@ -55,7 +55,7 @@ public class RouteController {
         route.setRouteCategory(RouteCategory.HIKING);
         route.setDifficultyLevel(DifficultyLevel.valueOf(difficultyLevel));
         routeService.save(route);
-        return "redirect:/allhikingroutes";
+        return "redirect:/showallhikingroutes";
     }
 
     @GetMapping("/editroute/{id}")
