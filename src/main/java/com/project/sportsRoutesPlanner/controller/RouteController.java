@@ -38,14 +38,14 @@ public class RouteController {
         return "route/showallhikingroutes";
     }
 
-    @GetMapping("/addroute")
+    @GetMapping("/addhikingroute")
     public String addRoute(Model model){
         model.addAttribute("models", new Route());
         return "route/addroute";
     }
 
     @PostMapping("/addhikingroute")
-    public String addRoute(@ModelAttribute Route route, String routeName, String description, Double distance,
+    public String addHikingRoute(@ModelAttribute Route route, String routeName, String description, Double distance,
                            Double maxAltitude, Double duration, String difficultyLevel) {
         route.setRouteName(routeName);
         route.setDescription(description);
