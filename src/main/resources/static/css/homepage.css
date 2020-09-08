@@ -8,10 +8,6 @@ body {
     opacity: 0.8;
 }
 
-.container {
-    padding-top: 80px;
-}
-
 .slick-slide {
     width: 10vw;
     box-sizing: border-box;
