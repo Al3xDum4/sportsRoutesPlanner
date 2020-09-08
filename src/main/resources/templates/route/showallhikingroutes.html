@@ -10,35 +10,38 @@
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<div class="add-box">
-    <a th:href="@{/addhikingroute}">
-        <i class="fas fa-plus" id="add"></i>
-        <span>new route</span>
-    </a>
-    <hr>
-</div>
+<div class="container">
+    <div class="add-box">
+        <a th:href="@{/addhikingroute}">
+            <i class="fas fa-plus" id="add"></i>
+            <span>new route</span>
+        </a>
+        <hr>
+    </div>
 
-<div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
-    <div class="route-card">
-        <div class="route-card-front">
-            <header class="route-card-header">
-                <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
-            </header>
+    <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
+        <div class="route-card">
+            <div class="route-card-front">
+                <header class="route-card-header">
+                    <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
+                </header>
 
-            <div class="route-card-content">
-                <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat.</p>
+                <div class="route-card-content">
+                    <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip
+                        ex ea commodo consequat.</p>
+                </div>
+
+                <footer class="route-card-footer">
+                    <button type="button" class="route-footer">Route details</button>
+                </footer>
             </div>
-
-            <footer class="route-card-footer">
-                <button type="button" class="route-footer">Route details</button>
-            </footer>
-        </div>
-        <div class="route-card-back">
-            <h1>back</h1>
+            <div class="route-card-back">
+                <h1>back</h1>
+            </div>
         </div>
     </div>
 </div>
@@ -49,4 +52,5 @@
  $('.container .route-card').click(function(){
     $(this).toggleClass("flip");
 });
+
 </script>
