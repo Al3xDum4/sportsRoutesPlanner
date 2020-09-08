@@ -85,3 +85,16 @@ header h1 {
 .bottom-more a {
     color: white;
 }
+
+.bottom-more .more {
+    width: 100%;
+    padding: 0px 0px 5px 6px;
+}
+
+.option {
+     margin: 0px 30px 0px 30px;
+ }
+
+.option i {
+    padding: 8px 0px 0px 0px;
+}

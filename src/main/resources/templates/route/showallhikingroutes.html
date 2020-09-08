@@ -33,11 +33,13 @@
                     ex ea commodo consequat.</p>
             </div>
 
-            <footer class="bottom-more">
-                <a href="#"><span><i class="fas fa-pen"></i></span></span></a>
-                <a href="#"><span><i class="fas fa-list-ul"></i></span></a>
-                <a href="#"><span><i class="fas fa-trash"></i></span></a>
+            <footer class="bottom-more" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+                <a href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
+                <a href="#" class="option"><span><i class="fas fa-list-ul"></i></span></a>
+                <a href="#" class="option"><span><i class="fas fa-trash"></i></span></a>
+                <div class="more">
                 <a href="#"><span>more...</span></a>
+                </div>
             </footer>
         </div>
 
@@ -53,6 +55,4 @@
  $('.container .route-card').click(function(){
     $(this).toggleClass("flip");
 });
-
-
 </script>
