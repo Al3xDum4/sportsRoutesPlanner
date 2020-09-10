@@ -1,12 +1,12 @@
 body {
-    height: 100%;
-    margin: 0;
-    background-image: url('../img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg');
-    background-repeat: no-repeat;
-    background-position: 70% 30%;
-    background-size: cover;
-    opacity: 0.8;
-}
+     height: 100%;
+     margin: 0;
+     background-image: url('../img/nathan-dumlao-pLoMDKtl-JY-unsplash.jpg');
+     background-repeat: no-repeat;
+     background-position: 70% 30%;
+     background-size: cover;
+     opacity: 0.8;
+ }
 
 .box {
     width: 30%;
