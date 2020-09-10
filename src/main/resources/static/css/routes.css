@@ -40,11 +40,12 @@
 }
 
 .route-card-header h1 {
-    padding: 5px;
+    margin: 0;
+    padding: 10px;
 }
 
 .route-card-header {
-    position: relative;
+    position: absolute;
     top: 0;
     width:100%;
     background-color: #001f16;
@@ -53,7 +54,10 @@
 }
 
 .route-card-content {
+    position: absolute;
     color: white;
+    top: 50%;
+    transform: translateY(-45%);
 }
 
 .route-card-content p {
@@ -170,4 +174,25 @@ button[type=submit]:hover {
 
 #title {
     text-align: center;
+}
+
+.items-bottom {
+    display: none;
+    transition: all .5s;
+}
+
+.items-bottom.openDiv {
+    display: block;
+    animation: openBottom .1s ease-in;
+}
+
+@keyframes openBottom {
+    0% {
+        opacity: 0%;
+        height: 0;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+    }
 }

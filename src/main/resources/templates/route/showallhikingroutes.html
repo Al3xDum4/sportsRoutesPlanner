@@ -21,9 +21,9 @@
 <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
     <div class="route-card">
         <div class="route-card-front">
-            <header class="route-card-header">
+            <div class="route-card-header">
                 <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
-            </header>
+            </div>
 
             <div class="route-card-content">
                 <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -34,9 +34,11 @@
             </div>
 
             <footer class="bottom-more">
+                <div class="items-bottom">
                 <a href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
-                <a href="#" class="option"><span><i class="fas fa-list-ul"></i></span></a>
+                <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
                 <a href="#" class="option"><span><i class="fas fa-trash"></i></span></a>
+                </div>
                 <div class="more">
                 <a href="#"><span>more...</span></a>
                 </div>
@@ -52,7 +54,16 @@
 </html>
 
 <script>
- $('.container .route-card').click(function(){
-    $(this).toggleClass("flip");
+ $('.container .route-card .details').click(function(){
+    $('.container .route-card').toggleClass("flip");
 });
+
+$('.container .route-card').mouseleave(function(){
+    $(this).removeClass('flip');
+    $('.items-bottom').removeClass('openDiv');
+})
+
+$('.more').click(function(){
+    $('.items-bottom').toggleClass('openDiv');
+})
 </script>
