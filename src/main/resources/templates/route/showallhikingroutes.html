@@ -63,7 +63,7 @@ $('.container .route-card').mouseleave(function(){
     $('.items-bottom').removeClass('openDiv');
 })
 
-$('.more').click(function(){
-    $(this).closest('.items-bottom').toggleClass('openDiv');
+$('.more').unbind().click(function(){
+    $('.items-bottom').toggleClass('openDiv');
 })
 </script>
