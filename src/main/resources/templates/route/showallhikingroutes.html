@@ -63,15 +63,6 @@ $('.container .route-card').mouseleave(function(){
     $('.items-bottom').removeClass('openDiv');
 })
 
-<!--var moreButton = document.getElementsByClassName('more');-->
-<!--console.log(moreButton);-->
-
-<!--for(var i = 0; i<=moreButton.length; i++){-->
-<!--    moreButton[i].addEventListener('click',function(){-->
-<!--        moreButton[i].classList.toggle('openDiv');-->
-<!--    })-->
-<!--}-->
-
 $('.more').click(function(){
     $(this).parent().find('.items-bottom').toggleClass('openDiv');
 })
