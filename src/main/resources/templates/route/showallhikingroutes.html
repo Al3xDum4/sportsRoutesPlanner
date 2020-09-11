@@ -55,7 +55,7 @@
 
 <script>
  $('.container .route-card .details').click(function(){
-    $('.container .route-card').toggleClass("flip");
+    $(this).closest('.container .route-card').toggleClass("flip");
 });
 
 $('.container .route-card').mouseleave(function(){
