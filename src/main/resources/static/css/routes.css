@@ -47,7 +47,7 @@
 }
 
 .back-content h3 p {
-    display: inline;
+    display: inline-block;
 }
 
 .route-card-header h1 {
