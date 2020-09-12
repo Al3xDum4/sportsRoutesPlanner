@@ -233,3 +233,13 @@ button[type=submit]:hover {
     background-color: transparent;
     outline: none;
 }
+
+::placeholder {
+    color: black;
+}
+
+select {
+    background: transparent;
+    border: none;
+    outline: none;
+}
