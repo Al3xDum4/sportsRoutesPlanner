@@ -58,11 +58,12 @@
     color: white;
     top: 50%;
     transform: translateY(-45%);
-
-    text-align: center;
+    text-align: justify;
+    text-align-last: center;
 }
 
 .route-card-content p {
+    width: 100%;
     padding: 5px;
 }
 
