@@ -59,7 +59,7 @@
     top: 50%;
     transform: translateY(-45%);
 
-    text-align-last: center;
+    text-align: center;
 }
 
 .route-card-content p {
