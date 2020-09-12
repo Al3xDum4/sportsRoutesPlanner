@@ -46,9 +46,24 @@
         </div>
 
         <div class="route-card-back">
-            <div class="back-content">
-                <h3>Difficulty: </h3>
-                <p class="route-difficulty" th:text="${hr.difficultyLevel}"></p>
+            <div class="back-content-item">
+                <label>Difficulty:</label>
+                <p class="route-difficulty" th:text="${hr.difficultyLevel}">jhfsjfjsgf</p>
+            </div>
+
+            <div class="back-content-item">
+                <label>Distance:</label>
+                <p class="route-distance" th:text="${hr.distance}">jhfsjfjsgf</p>
+            </div>
+
+            <div class="back-content-item">
+                <label>Ascension:</label>
+                <p class="route-ascension" th:text="${hr.maxAltitude}">jhfsjfjsgf</p>
+            </div>
+
+            <div class="back-content-item">
+                <label>Duration:</label>
+                <p class="route-duration" th:text="${hr.duration}">jhfsjfjsgf</p>
             </div>
         </div>
     </div>

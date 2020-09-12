@@ -40,11 +40,19 @@
     transform: rotateY(180deg);
 }
 
-.back-content {
+.back-content-item {
     width: 100%;
-    margin: 10px;
+    padding: 10px;
     text-align: left;
-    display: inline-block;
+}
+
+label, p {
+    display: inline;
+}
+
+label {
+  text-decoration: underline;
+  margin-right: 10px;
 }
 
 .route-card-header h1 {
