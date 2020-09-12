@@ -11,6 +11,7 @@
         $(document).ready(function() {
             $('select').material_select();
         });
+
     </script>
 </head>
 <body class="addroute">
@@ -29,9 +30,9 @@
             <label for="difficultyLevel">Difficulty level:</label>
             <br/>
             <select class="select-field" id="difficultyLevel" name="difficultyLevel" required>
+                <option value="" disabled selected hidden></option>
                 <option th:each="df : ${diflevels}" th:value="${df}"
                         th:text="${df}">
-                    Difficulty level
                 </option>
             </select>
         </div>
@@ -40,7 +41,8 @@
         <div class="input-box">
             <label for="distance">Distance of route:</label>
             <br/>
-            <input class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance" required>
+            <input class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance"
+                   required>
         </div>
         <br/>
 
@@ -79,8 +81,6 @@
             <input class="input-field" type="file" id="routeMapImg" name="routeMapImg" accept="image/*">
         </div>
         <br/>
-        
-        
 
 
         <button type="submit" value="Submit">Submit</button>

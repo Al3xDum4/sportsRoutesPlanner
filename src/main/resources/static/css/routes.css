@@ -152,7 +152,7 @@ header h1 {
 
 input {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 0px;
     margin: 8px 0;
     border: none;
     background-color: transparent;
@@ -223,4 +223,13 @@ button[type=submit]:hover {
         opacity: 1;
         height: auto;
     }
+}
+
+#description {
+    width: 100%;
+    padding: 12px 0px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
 }
