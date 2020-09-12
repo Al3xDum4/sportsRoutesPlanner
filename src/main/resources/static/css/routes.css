@@ -34,9 +34,15 @@
 }
 
 .route-card-back {
-    background-color: #2980b9;
+    background-color: #333;
+    opacity: 0.7;
     color: white;
     transform: rotateY(180deg);
+}
+
+.back-content {
+    margin: 10px;
+    text-align: left;
 }
 
 .route-card-header h1 {
