@@ -35,35 +35,37 @@
 
             <footer class="bottom-more">
                 <div class="items-bottom">
-                <a href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
-                <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
-                <a href="#" class="option"><span><i class="fas fa-trash"></i></span></a>
+                    <a href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
+                    <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
+                    <a href="#" class="option"><span><i class="fas fa-trash"></i></span></a>
                 </div>
                 <div class="more">
-                <a href="#"><span>more...</span></a>
+                    <a href="#"><span>more...</span></a>
                 </div>
             </footer>
         </div>
 
         <div class="route-card-back">
-            <div class="back-content-item">
-                <label>Difficulty:</label>
-                <p class="route-difficulty" th:text="${hr.difficultyLevel}">jhfsjfjsgf</p>
-            </div>
+            <div class="back-content">
+                <div class="back-content-item">
+                    <label>Difficulty:</label>
+                    <p class="route-difficulty" th:text="${hr.difficultyLevel}">jhfsjfjsgf</p>
+                </div>
 
-            <div class="back-content-item">
-                <label>Distance:</label>
-                <p class="route-distance" th:text="${hr.distance}">jhfsjfjsgf</p>
-            </div>
+                <div class="back-content-item">
+                    <label>Distance:</label>
+                    <p class="route-distance" th:text="${hr.distance}">jhfsjfjsgf</p>
+                </div>
 
-            <div class="back-content-item">
-                <label>Ascension:</label>
-                <p class="route-ascension" th:text="${hr.maxAltitude}">jhfsjfjsgf</p>
-            </div>
+                <div class="back-content-item">
+                    <label>Ascension:</label>
+                    <p class="route-ascension" th:text="${hr.maxAltitude}">jhfsjfjsgf</p>
+                </div>
 
-            <div class="back-content-item">
-                <label>Duration:</label>
-                <p class="route-duration" th:text="${hr.duration}">jhfsjfjsgf</p>
+                <div class="back-content-item">
+                    <label>Duration:</label>
+                    <p class="route-duration" th:text="${hr.duration}">jhfsjfjsgf</p>
+                </div>
             </div>
         </div>
     </div>
@@ -84,4 +86,5 @@ $('.container .route-card').mouseleave(function(){
 $('.more').click(function(){
     $(this).parent().find('.items-bottom').toggleClass('openDiv');
 })
+
 </script>

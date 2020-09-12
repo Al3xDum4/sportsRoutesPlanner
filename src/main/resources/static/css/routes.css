@@ -38,12 +38,19 @@
     opacity: 0.7;
     color: white;
     transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-content {
+    padding: 5px;
+    text-align: left;
 }
 
 .back-content-item {
-    width: 100%;
     padding: 10px;
-    text-align: left;
+    margin: 5px;
 }
 
 label, p {
@@ -51,8 +58,10 @@ label, p {
 }
 
 label {
+  width: 100px;
   text-decoration: underline;
   margin-right: 10px;
+  display: inline-block;
 }
 
 .route-card-header h1 {
