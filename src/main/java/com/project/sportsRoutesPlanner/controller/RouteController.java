@@ -62,8 +62,10 @@ public class RouteController {
 
     @GetMapping("/edithikingroute/{id}")
     public String editHikingRoute(Model model, @PathVariable Integer id) {
+        List<DifficultyLevel> difficultyLevels = routeService.allDifficultLevels();
         Route route = routeService.findById(id);
         model.addAttribute("route", route);
+        model.addAttribute("diflevels", difficultyLevels);
         return "route/editroute";
     }
 
