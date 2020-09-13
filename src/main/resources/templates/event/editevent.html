@@ -1,10 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link href="../../static/css/add_events.css" th:href="@{/css/add_events.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit event</title>
+    <nav th:insert="menu.html::menu_nav"></nav>
+
 </head>
-<body>
+<br>
+
+<div class="container">
+    <h2>Edit event</h2></br></br>
+    <form th:action="@{/guide/editevent/{id}(id=${event.eventId})}" th:object="${event}"  method="post">
+        <div class="row">
+            <input th:field="*{eventId}" type="hidden">
+            <input th:field="*{eventCategory}" type="hidden">
+            <div class="col-1">
+                <label for="eventName">Event Name</label>
+            </div>
+            <div class="col-2">
+                <input th:field="*{eventName}" id="eventName" type="text"  required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label for="hiking_route">Hiking Route</label>
+            </div>
+            <div class="col-2">
+                <select id="hiking_route" th:field="*{route.routeId}">
+                    <option th:each="r: ${routes}" th:value="${r.routeId}" th:text="${r.routeName}">
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label for="guide">Event Guide</label>
+            </div>
+            <div class="col-2">
+                <select id="guide" name="guide">
+                    <option th:each="g: ${allguides}" th:value="${g.userId}" th:text="${g.firstName + ' ' +g.lastName}">
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <label for="start_event">Event Start Date</label>
+            </div>
+            <div class="col-2">
+                <input th:field="*{startEvent}" id="start_event" type="date" pattern="yyyy-MM-dd" required></br></br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label for="end_event">Event End Date</label>
+            </div>
+            <div class="col-2">
+                <input th:field="*{endEvent}" id="end_event" type="date" pattern="yyyy-MM-dd" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <label for="signUp">SignUp Deadline</label>
+            </div>
+            <div class="col-2">
+                <input th:field="*{signUpDeadline}" id="signUp" type="date" pattern="yyyy-MM-dd" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <label for="maxP">Group size</label>
+            </div>
+            <div class="col-2">
+                <select id="maxP" name="maxParticipants" required>
+                    <option th:each="i : ${#numbers.sequence(5, 15)}" th:value="${i}" th:text="${i}">
+
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <label for="price">Price</label>
+            </div>
+            <div class="col-2">
+                <input th:field="*{price}" id="price" type="text" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <label for="description">Event description</label>
+            </div>
+            <div class="col-2">
+                <textarea th:field="*{description}" id="description" type="text" cols="30" rows="10" style="heigh:100px"></textarea>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
 
 </body>
 </html>

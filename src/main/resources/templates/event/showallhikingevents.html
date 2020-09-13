@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>All hiking events</title>
+    <nav th:insert="menu.html::menu_nav"></nav>
+    <link href="../../static/css/events.css" th:href="@{/css/events.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class="add-box">
+    <a th:href="@{/addhikingevent}">
+        <i class="fas fa-plus" id="add"></i>
+        <span>create new event</span>
+    </a>
+    <hr>
+</div>
+
+<div class="container" th:each="ev: ${#lists.sort(hikingevents, byEventName)}">
+    <div class="event-card">
+        <div class="event-card-front">
+            <header class="event-card-header">
+                <h1 class="event-title" th:text="${ev.eventName}">Event Name</h1>
+
+            </header>
+
+            <div class="event-card-content">
+                <p class="event-content" th:text="${ev.description}">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat.</p>
+            </div>
+
+            <footer class="bottom-more">
+                <a th:href="@{/guide/editevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
+                <a href="#" class="option"><span><i class="fas fa-list-ul"></i></span></a>
+                <a th:href="@{/guide/deletehikingevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i class="fas fa-trash" onclick="return confirm('Are you sure you want to delete this event?')"></i></span></a>
+                <div class="more">
+                    <a href="#"><span>more...</span></a>
+                </div>
+            </footer>
+        </div>
+
+        <div class="event-card-back">
+            <h1>back</h1>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+ $('.container .event-card').click(function(){
+    $(this).toggleClass("flip");
+});
+</script>
