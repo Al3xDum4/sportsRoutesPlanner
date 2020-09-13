@@ -16,12 +16,12 @@
 
     <form class="form" th:action="@{/edithikingroute/{id} (id=${route.routeId})}" th:object="${route}" autocomplete="off" method="post">
         <div class="input-box">
-            <input th:field="*{routeName}" class="input-field" type="text" id="routeName" name="routeName" placeholder="Route name" required>
+            <input th:field="*{routeName}" class="input-field" type="text" id="routeName" name="routeName" placeholder="Route name">
         </div>
         <br/>
 
         <div class="input-box">
-            <select th:field="*{difficultyLevel}" class="select-field" id="difficultyLevel" name="difficultyLevel" required>
+            <select th:field="*{difficultyLevel}" class="select-field" id="difficultyLevel" name="difficultyLevel">
                 <option value="" disabled selected hidden></option>
                 <option th:each="df : ${diflevels}" th:value="${df}"
                         th:text="${df}">
@@ -31,19 +31,17 @@
         <br/>
 
         <div class="input-box">
-            <input th:field="*{distance}" class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance"
-                   required>
+            <input th:field="*{distance}" class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance">
         </div>
         <br/>
 
         <div class="input-box">
-            <input th:field="*{maxAltitude}" class="input-field" type="number" id="maxAltitude" name="maxAltitude" placeholder="Max altitude"
-                   required>
+            <input th:field="*{maxAltitude}" class="input-field" type="number" id="maxAltitude" name="maxAltitude" placeholder="Max altitude">
         </div>
         <br/>
 
         <div class="input-box">
-            <input th:field="*{duration}" class="input-field" type="number" id="duration" name="duration" placeholder="Duration" required>
+            <input th:field="*{duration}" class="input-field" type="number" id="duration" name="duration" placeholder="Duration">
         </div>
         <br/>
 
