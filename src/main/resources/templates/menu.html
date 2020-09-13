@@ -20,7 +20,16 @@
                 </div>
             </li>
             <li><a th:href="@{/allguides}" class="menu-item">Guides</a></li>
-            <li><a th:href="@{/allevents}" class="menu-item">Events</a></li>
+            <li class="dropdown">
+                <button class="dropbtn" onclick="myFunctionevent()">Events
+                    <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content" id="myDropdownevents">
+                    <a th:href="@{/allhikingevents}">Hiking</a>
+                    <a th:href="@{/viaferrataevents}">Via Ferrata</a>
+                    <a th:href="@{/cyclingevents}">Cycling</a>
+                    <a th:href="@{/enduroevents}">Enduro</a>
+                </div>
+            </li>
             <div class="right-side">
                 <li><a><i class="far fa-bell"></i></a></li>
                 <li><a th:href="@{/login}" id="login">login</a></li>
@@ -45,6 +54,23 @@ window.onclick = function(e) {
   var myDropdown = document.getElementById("myDropdown");
     if (myDropdown.classList.contains('show')) {
       myDropdown.classList.remove('show');
+    }
+  }
+}
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+
+function myFunctionevent() {
+  document.getElementById("myDropdownevents").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdownevents = document.getElementById("myDropdownevents");
+    if (myDropdownevents.classList.contains('show')) {
+      myDropdownevents.classList.remove('show');
     }
   }
 }

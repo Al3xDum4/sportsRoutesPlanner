@@ -14,6 +14,25 @@
     <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet"/>
 
     <nav th:insert="menu.html::menu_nav"></nav>
+    <script>
+        function searchKeyUpFirstName() {
+        // Declare variables
+             var input, filter, spans, i, txtValue, trs;
+             input = document.getElementById('searchFirstName');
+             filter = input.value.toUpperCase();
+             spans = document.getElementsByClassName('first_name');
+             trs = document.getElementsByClassName('guide');
+             // Loop through all list items, and hide those who don't match the search query
+             for (i = 0; i < spans.length; i++) {
+               txtValue = spans[i].innerText;
+               if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                 trs[i].style.display = "";
+               } else {
+                 trs[i].style.display = "none";
+               }
+             }
+  }
+    </script>
 </head>
 <body>
 
@@ -22,11 +41,17 @@
 <a th:href="@{/addguide}">
     <i class="material-icons" style="font-size:30px;color:black">add</i>
 </a></br>
-</br>
 <table class="tableheader" align="center">
-    <tr>
+
         <!--            <th>Guide Id</th>-->
         <td width="150px">First Name</td>
+    <div class="input-box">
+        <i class="fas fa-search"></i>
+        <input type="text" onkeyup="searchKeyUpFirstName()"
+               name="searchFirstName" id="searchFirstName"
+               placeholder="Search by first name"
+        /></div>
+    </br></br>
         <td width="150px">Last Name</td>
         <td width="100px">Age</td>
         <td width="250px">Email Address</td>
@@ -38,13 +63,13 @@
 <div class ="forbody">
     <table class="tablebody">
         <tbody th:each="g:${guides}">
-        <tr>
+        <tr class="guide">
             <!--            <td th:text="${g.userId}"></td>-->
-            <td th:text="${g.firstName}" width="150px" height="50px"></td>
-            <td th:text="${g.lastName}" width="150px"></td>
-            <td th:text="${g.age}"width="100px"></td>
-            <td th:text="${g.emailAddress}" width="250px"></td>
-            <td th:text="${g.phoneNo}" width="200px"></td>
+            <td> <span class="first_name" th:text="${g.firstName}" width="150px" height="70px"></span></td>
+            <td th:text="${g.lastName}" width="150px" height="70px"></td>
+            <td th:text="${g.age}"width="100px" height="7-px"></td>
+            <td th:text="${g.emailAddress}" width="250px" height="70px"></td>
+            <td th:text="${g.phoneNo}" width="200px" height="70px"></td>
             <!--            <td th:text="${g.role}"></td>-->
             <td width="100px">
                 <a th:href="@{/editguide/{id}(id=${g.userId})}">

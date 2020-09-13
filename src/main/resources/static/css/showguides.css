@@ -40,6 +40,7 @@ width: 970px;
 
 .tablebody{
 width:950px;
+height:60px;
 text-align: left;
 font-weight:500;
 font-size: 16px;
@@ -59,6 +60,15 @@ h1{
   margin-bottom: 30px;
 }
 
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom:3px solid black;
+    background-color: transparent;
+    outline: none;
+}
 
 
 
