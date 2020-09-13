@@ -76,7 +76,7 @@ public class RouteController {
     @GetMapping("/deletehikingroute/{id}")
     public String deleteHikingRoute(@PathVariable Integer id) {
         routeService.deleteById(id);
-        return "redirect:/showallhikingroutes";
+        return "redirect:/allhikingroutes";
     }
 
 }
