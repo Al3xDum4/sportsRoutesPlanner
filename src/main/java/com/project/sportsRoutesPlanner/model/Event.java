@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 import java.sql.Date;
 import java.util.List;
 
@@ -22,6 +23,11 @@ public class Event {
     private Date startEvent;
     private Date endEvent;
     private Integer price;
+
+    private String eventName;
+    private String description;
+
+    private EventCategory eventCategory;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
