@@ -77,13 +77,31 @@ public class EventController {
     @GetMapping("/guide/editevent/{id}")
     public String editEvent(Model model, @PathVariable Integer id) {
         Event event = eventService.findById(id);
+        List<Route> routeList = routeService.findHikings();
+        List<User> guidesList = userService.findGuide();
+        model.addAttribute("guide","");
+        model.addAttribute("event", new Event());
+        model.addAttribute("routes",routeList);
+        model.addAttribute("allguides",guidesList);
         model.addAttribute("event", event);
         return "event/editevent";
     }
 
-    @GetMapping("/guide/deleteevent/{id}")
+    @PostMapping("/guide/editevent/{id}")
+    public String editGuide(@ModelAttribute Event event, @PathVariable Integer id, String guide) {
+        User user=userService.findById(Integer.parseInt(guide));
+        event.setUsersList(new ArrayList<>());
+        event.getUsersList().add(user);
+        eventService.save(event);
+        return "redirect:/allhikingevents";
+    }
+
+
+
+
+    @GetMapping("/guide/deletehikingevent/{id}")
     public String deleteEvent(@PathVariable Integer id) {
         eventService.deleteById(id);
-        return "redirect:/allevents";
+        return "redirect:/allhikingevents";
     }
 }
