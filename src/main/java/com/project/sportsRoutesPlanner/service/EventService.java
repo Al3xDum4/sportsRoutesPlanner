@@ -1,12 +1,11 @@
 package com.project.sportsRoutesPlanner.service;
 
-import com.project.sportsRoutesPlanner.model.Event;
-import com.project.sportsRoutesPlanner.model.Route;
-import com.project.sportsRoutesPlanner.model.User;
+import com.project.sportsRoutesPlanner.model.*;
 import com.project.sportsRoutesPlanner.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +29,17 @@ public class EventService {
             return event.get();
         }
         return null;
+    }
+
+    public List<Event> findHikingEvents() {
+        List<Event> events = eventRepository.findAll();
+        List<Event> hikingEvents = new ArrayList<>();
+        for (int i = 0; i < events.size(); i++) {
+            if (((events.get(i).getEventCategory()).equals(EventCategory.HIKING))) {
+                hikingEvents.add(events.get(i));
+            }
+        }
+        return hikingEvents;
     }
 
     public void deleteById(Integer id) {
