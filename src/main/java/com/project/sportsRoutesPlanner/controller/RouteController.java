@@ -71,6 +71,7 @@ public class RouteController {
 
     @PostMapping("/edithikingroute/{id}")
     public String editHikingRoute(@ModelAttribute Route route, @PathVariable Integer id) {
+        route.setRouteCategory(RouteCategory.HIKING);
         routeService.save(route);
         return "redirect:/allhikingroutes";
     }
