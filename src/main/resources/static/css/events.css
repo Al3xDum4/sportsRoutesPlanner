@@ -1,0 +1,165 @@
+.container {
+    display: inline-block;
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 5px;
+}
+
+.event-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    background-image: url('../img/parang.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container .event-card.flip {
+  transform: rotateY(180deg);
+}
+
+.event-card-front, .route-card-back {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.event-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.event-card-header h1 {
+    padding: 5px;
+}
+
+.event-card-header {
+    position: relative;
+    top: 0;
+    width:100%;
+    background-color: #001f16;
+    opacity: 0.6;
+    color: white;
+}
+
+.event-card-content {
+    color: white;
+}
+
+.event-card-content p {
+    padding: 5px;
+}
+
+header h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.add-box {
+    display: inline;
+}
+
+#add {
+    margin-right: 2px;
+}
+
+.bottom-more {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #001f16;
+    opacity: 0.6;
+}
+
+.bottom-more a {
+    color: white;
+}
+
+.bottom-more .more {
+    width: 100%;
+    padding: 0px 0px 5px 6px;
+}
+
+.option {
+     margin: 0px 30px 0px 30px;
+ }
+
+.option i {
+    padding: 8px 0px 0px 0px;
+}
+
+.box {
+    width: 30%;
+    height: auto;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: black;
+}
+
+.input-box {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+button[type=submit] {
+    width: 50%;
+    align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #001f16;
+    opacity: 0.6;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+button[type=submit]:hover {
+    background-color: #232100;
+    opacity: 0.9;
+}
+
+
+
+#title {
+    text-align: center;
+}

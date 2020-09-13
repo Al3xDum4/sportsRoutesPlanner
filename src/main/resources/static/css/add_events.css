@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+*{
+box-sizing: border-box;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url('../img/fabrizio-verrecchia-CcqAFQBQV1A-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-position: 90% 10%;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.8;
+}
+
+.container {
+   width: 40%;
+   margin-left:50px;
+  border-radius: 5px;
+  /*background-color: #f2f2f2;*/
+  padding: 20px;
+}
+
+input[type=text], input[type=date], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+border-bottom: 2px solid black;
+background-color: transparent;
+/* border-radius: 4px;*/
+ resize: vertical;
+ /* display: inline-block;
+ border: 1px solid #ccc;
+ border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;*/
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+background-color: #001f16;
+box-sizing: border-box;
+display: inline-block;
+ resize: vertical;
+ color: white;
+
+}
+
+
+
+
+
+/*
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}*/
+input[type=submit] {
+  width: 100%;
+  background-color: #001f16;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s ease-in;
+}
+
+input[type=submit]:hover {
+  background-color: #232100;
+  opacity: 0.9;
+}
+
+.col-1 {
+  float: left;
+  width: 30%;
+  margin-top: 6px;
+}
+
+.col-2 {
+  float: left;
+  width: 70%;
+  margin-bottom: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h2{
+  font-size: 30px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 15px;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+
+/*div {
+  width: 30%;
+  border-radius: 5px;
+ /* background-color: #f2f2f2;
+  padding: 20px;
+  opacity: 0.6;
+}*/
+
