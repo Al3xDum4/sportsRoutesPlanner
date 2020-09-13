@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit route</title>
+    <nav th:insert="menu.html::menu_nav"></nav>
+    <link href="../../static/css/routes.css" th:href="@{/css/routes.css}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
+<body class="edit-route">
+<div class="box">
+    <h1 id="title">New route</h1>
+
+    <form class="form" th:action="@{/addhikingroute}" autocomplete="off" method="post">
+        <div class="input-box">
+            <input class="input-field" type="text" id="routeName" name="routeName" placeholder="Route name" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <select class="select-field" id="difficultyLevel" name="difficultyLevel" required>
+                <option value="" disabled selected hidden></option>
+                <option th:each="df : ${diflevels}" th:value="${df}"
+                        th:text="${df}">
+                </option>
+            </select>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <input class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance"
+                   required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <input class="input-field" type="number" id="maxAltitude" name="maxAltitude" placeholder="Max altitude"
+                   required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <input class="input-field" type="number" id="duration" name="duration" placeholder="Duration" required>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description route"></textarea>
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <input class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">
+        </div>
+        <br/>
+
+        <div class="input-box">
+            <input class="input-field" type="file" id="routeMapImg" name="routeMapImg" accept="image/*">
+        </div>
+        <br/>
+
+        <button type="submit" value="Submit">Submit</button>
+    </form>
+</div>
 
 </body>
 </html>

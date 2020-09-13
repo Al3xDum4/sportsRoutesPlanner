@@ -80,16 +80,12 @@ label {
 
 .route-card-content {
     position: absolute;
-    width: 100%;
     color: white;
     top: 50%;
     transform: translateY(-45%);
+    padding: 10px;
     text-align: justify;
     text-align-last: center;
-}
-
-.route-card-content p {
-    padding: 5px;
 }
 
 header h1 {
@@ -168,6 +164,7 @@ select {
     outline: none;
 }
 
+
 button[type=submit] {
     width: 50%;
     align: center;
@@ -236,10 +233,4 @@ button[type=submit]:hover {
 
 ::placeholder {
     color: black;
-}
-
-select {
-    background: transparent;
-    border: none;
-    outline: none;
 }

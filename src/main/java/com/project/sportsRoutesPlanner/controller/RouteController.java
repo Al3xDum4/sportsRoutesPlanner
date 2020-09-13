@@ -63,7 +63,7 @@ public class RouteController {
     @GetMapping("/editroute/{id}")
     public String editRoute(Model model, @PathVariable Integer id) {
         Route route = routeService.findById(id);
-        model.addAttribute("event", route);
+        model.addAttribute("route", route);
         return "route/editroute";
     }
 

@@ -37,7 +37,7 @@
                 <div class="items-bottom">
                     <a href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
                     <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
-                    <a href="#" class="option"><span><i class="fas fa-trash"></i></span></a>
+                    <a th:href="@{/deleteroute/{id}} (id=${hr.routeId})" class="option"><span><i class="fas fa-trash"></i></span></a>
                 </div>
                 <div class="more">
                     <a href="#"><span>more...</span></a>
@@ -81,10 +81,10 @@ $('.container .route-card .details').click(function(){
 $('.container .route-card').mouseleave(function(){
     $(this).removeClass('flip');
     $('.items-bottom').removeClass('openDiv');
-})
+});
 
 $('.more').click(function(){
     $(this).parent().find('.items-bottom').toggleClass('openDiv');
-})
+});
 
 </script>
