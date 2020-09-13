@@ -35,7 +35,7 @@
 
             <footer class="bottom-more">
                 <div class="items-bottom">
-                    <a href="#" class="option"><span><i class="fas fa-pen"></i></span></span></a>
+                    <a th:href="@{/edithikingroute/{id} (id=${hr.routeId})}" class="option"><span><i class="fas fa-pen"></i></span></span></a>
                     <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
                     <a th:href="@{/deletehikingroute/{id} (id=${hr.routeId})}" class="option"><span><i class="fas fa-trash"></i></span></a>
                 </div>

@@ -14,14 +14,14 @@
 <div class="box">
     <h1 id="title">New route</h1>
 
-    <form class="form" th:action="@{/addhikingroute}" autocomplete="off" method="post">
+    <form class="form" th:action="@{/edithikingroute/{id} (id=${route.routeId})}" th:object="${route}" autocomplete="off" method="post">
         <div class="input-box">
-            <input class="input-field" type="text" id="routeName" name="routeName" placeholder="Route name" required>
+            <input th:field="*{routeName}" class="input-field" type="text" id="routeName" name="routeName" placeholder="Route name" required>
         </div>
         <br/>
 
         <div class="input-box">
-            <select class="select-field" id="difficultyLevel" name="difficultyLevel" required>
+            <select th:field="*{difficultyLevel}" class="select-field" id="difficultyLevel" name="difficultyLevel" required>
                 <option value="" disabled selected hidden></option>
                 <option th:each="df : ${diflevels}" th:value="${df}"
                         th:text="${df}">
@@ -31,34 +31,34 @@
         <br/>
 
         <div class="input-box">
-            <input class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance"
+            <input th:field="*{distance}" class="input-field" type="number" step="any" id="distance" name="distance" placeholder="Distance"
                    required>
         </div>
         <br/>
 
         <div class="input-box">
-            <input class="input-field" type="number" id="maxAltitude" name="maxAltitude" placeholder="Max altitude"
+            <input th:field="*{maxAltitude}" class="input-field" type="number" id="maxAltitude" name="maxAltitude" placeholder="Max altitude"
                    required>
         </div>
         <br/>
 
         <div class="input-box">
-            <input class="input-field" type="number" id="duration" name="duration" placeholder="Duration" required>
+            <input th:field="*{duration}" class="input-field" type="number" id="duration" name="duration" placeholder="Duration" required>
         </div>
         <br/>
 
         <div class="input-box">
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description route"></textarea>
+            <textarea th:field="*{description}" name="description" id="description" cols="30" rows="10" placeholder="Description route"></textarea>
         </div>
         <br/>
 
         <div class="input-box">
-            <input class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">
+            <input th:field="*{routeBackground}" class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">
         </div>
         <br/>
 
         <div class="input-box">
-            <input class="input-field" type="file" id="routeMapImg" name="routeMapImg" accept="image/*">
+            <input th:field="*{routeMapImg}" class="input-field" type="file" id="routeMapImg" name="routeMapImg" accept="image/*">
         </div>
         <br/>
 

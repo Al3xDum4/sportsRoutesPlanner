@@ -57,7 +57,7 @@ public class RouteController {
         route.setRouteCategory(RouteCategory.HIKING);
         route.setDifficultyLevel(DifficultyLevel.valueOf(difficultyLevel));
         routeService.save(route);
-        return "redirect:/showallhikingroutes";
+        return "redirect:/allhikingroutes";
     }
 
     @GetMapping("/editroute/{id}")
@@ -67,14 +67,20 @@ public class RouteController {
         return "route/editroute";
     }
 
-    @PostMapping("/editroute/{id}")
-    public String editRoute(@ModelAttribute Route route, @PathVariable Integer id) {
+    @PostMapping("/edithikingroute/{id}")
+    public String editHikingRoute(@ModelAttribute Route route, @PathVariable Integer id) {
         routeService.save(route);
-        return "redirect:/allroutes";
+        return "redirect:/allhikingroutes";
     }
 
     @GetMapping("/deletehikingroute/{id}")
     public String deleteHikingRoute(@PathVariable Integer id) {
+        routeService.deleteById(id);
+        return "redirect:/allhikingroutes";
+    }
+
+    @GetMapping("/deletecyclingroute/{id}")
+    public String deleteCyclingRoute(@PathVariable Integer id) {
         routeService.deleteById(id);
         return "redirect:/allhikingroutes";
     }
