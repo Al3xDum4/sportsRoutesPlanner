@@ -73,10 +73,10 @@ public class RouteController {
         return "redirect:/allroutes";
     }
 
-    @GetMapping("/deleteroute/{id}")
-    public String deleteRoute(@PathVariable Integer id) {
+    @GetMapping("/deletehikingroute/{id}")
+    public String deleteHikingRoute(@PathVariable Integer id) {
         routeService.deleteById(id);
-        return "redirect:/allroutes";
+        return "redirect:/allhikingroutes";
     }
 
 }
