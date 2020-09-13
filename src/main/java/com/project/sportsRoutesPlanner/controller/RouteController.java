@@ -60,7 +60,7 @@ public class RouteController {
         return "redirect:/allhikingroutes";
     }
 
-    @GetMapping("/editroute/{id}")
+    @GetMapping("/edithikingroute/{id}")
     public String editRoute(Model model, @PathVariable Integer id) {
         Route route = routeService.findById(id);
         model.addAttribute("route", route);
