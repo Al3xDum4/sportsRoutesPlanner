@@ -59,7 +59,7 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
 //	   userRepository.save(user);
 //   pendingUserRepository.deleteById(1);
         //userRepository.deleteById(7);
-        routeRepository.deleteById(8);
+        //routeRepository.deleteById(8);
 
 
     }
