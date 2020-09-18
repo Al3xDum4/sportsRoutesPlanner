@@ -55,7 +55,7 @@
                 <label for="start_event">Event Start Date</label>
             </div>
             <div class="col-2">
-                <input th:field="*{startEvent}" id="start_event" type="date" pattern="yyyy-MM-dd" required></br></br>
+                <input th:field="*{startEvent}" id="start_event" type="date" pattern="dd-MM-yyyy" required></br></br>
             </div>
         </div>
 
@@ -64,7 +64,7 @@
                 <label for="end_event">Event End Date</label>
             </div>
             <div class="col-2">
-                <input th:field="*{endEvent}" id="end_event" type="date" pattern="yyyy-MM-dd" required>
+                <input th:field="*{endEvent}" id="end_event" type="date" pattern="dd-MM-yyyy" required>
             </div>
         </div>
         <div class="row">
@@ -72,7 +72,7 @@
                 <label for="signUp">SignUp Deadline</label>
             </div>
             <div class="col-2">
-                <input th:field="*{signUpDeadline}" id="signUp" type="date" pattern="yyyy-MM-dd" required>
+                <input th:field="*{signUpDeadline}" id="signUp" type="date" pattern="dd-MM-yyyy" required>
             </div>
         </div>
         <div class="row">
@@ -110,3 +110,17 @@
 
 </body>
 </html>
+<script>
+    $(document).ready(function() {
+		var $winwidth = $(window).width();
+		$("img.source-image").attr({
+			width: $winwidth
+		});
+		$(window).bind("resize", function(){
+			var $winwidth = $(window).width();
+			$("img.source-image").attr({
+				width: $winwidth
+			});
+		 });
+	});
+</script>
