@@ -4,60 +4,102 @@
     <meta charset="UTF-8">
     <title>All hiking events</title>
     <nav th:insert="menu.html::menu_nav"></nav>
-    <link href="../../static/css/events.css" th:href="@{/css/events.css}" rel="stylesheet"/>
+    <link href="../../static/css/vents.css" th:href="@{/css/events.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<div class="add-box">
-    <a th:href="@{/addhikingevent}">
-        <i class="fas fa-plus" id="add"></i>
-        <span>create new event</span>
-    </a>
-    <hr>
-</div>
+
+
 
 <div class="container" th:each="ev: ${#lists.sort(hikingevents, byEventName)}">
-    <div class="card">
-        <header class="card-header">
-            <h1 class="event-name" th:text="${ev.eventName}">Event Name</h1>
-        </header>
-        <header class="card-header">
-            <h1 class="event-day"
-                th:text="${#dates.format(ev.startEvent,'dd.MM.yyyy')+' - '+#dates.format(ev.endEvent,'dd.MM.yyyy')}">
-                Event Date</h1>
-        </header>
-        <header class="card-header">
-            <h1 class="event-submition"
-                th:text="${'SignUp deadline: '+#dates.format(ev.signUpDeadline,'dd.MM.yyyy')}">
-                Event SignUp date</h1>
-        </header>
 
-        <div class="card-content">
-            <p class="event-content" th:text="${ev.description}">Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip
-                ex ea commodo consequat.</p>
-        </div>
-
-        <footer class="bottom-more">
-            <a th:href="@{/guide/editevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i
-                    class="fas fa-pen"></i></span></span></a>
-            <a href="#" class="option"><span><i class="fas fa-list-ul"></i></span></a>
-            <a th:href="@{/guide/deletehikingevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i
-                    class="fas fa-trash"
-                    onclick="return confirm('Are you sure you want to delete this event?')"></i></span></a>
-            <div class="more">
-                <a href="#"><span>more...</span></a>
+    <div class="blog-card">
+        <div class="title-content">
+            <h3 th:text="${ev.eventName}">Event Name</h3>
+            <div class="intro">
+                <i class='far fa-calendar-check'></i>
+                <a href="#" th:text="${#dates.format(ev.startEvent,'dd.MM.yyyy')+' - '+#dates.format(ev.endEvent,'dd.MM.yyyy')}">
+                Event Date</a></br></br>
+                <a href="#" th:text="'SignUp Deadline: '+${#dates.format(ev.signUpDeadline,'dd.MM.yyyy')}">
+                    SignUp Deadline</a>
             </div>
-        </footer>
+        </div>
+            <div class="card-info">
+                <p class="event-description" th:text="${ev.description}">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim...
+                </p>
+                <a href="#" th:href="@{/showhikingevent/{id}(id=${ev.eventId})}">Read More<i class='fas fa-angle-right'></i></a>
+            </div>
+
+            <div class="edit-info">
+                <a th:href="@{/guide/editevent/{id}(id=${ev.eventId})}" href="#" class="option"><i
+                        class="fas fa-pen"></i></a>
+            </div>
+            <div class="utility-info">
+                <a th:href="@{/guide/deletehikingevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i
+                        class="fas fa-trash"
+                        onclick="return confirm('Are you sure you want to delete this event?')"></i></span></a>
+            </div>
+
+            <!--        <ul class="utility-list">-->
+            <!--            <li><span class="fas fa-pen"></span><a href="#" th:href="@{/guide/editevent/{id}(id=${ev.eventId})}"></a></li>-->
+            <!--&lt;!&ndash;            <li><span class="licon icon-com"></span><a href="#">12</a></li>&ndash;&gt;-->
+            <!--            <li><span class="licon icon-dat" th:href="@{/guide/deletehikingevent/{id}(id=${ev.eventId})}"></span>Delete</li>-->
+            <!--            <li><span class="licon icon-tag"></span><a href="#">Photos</a>, <a href="#">Nice</a></li>-->
+            <!--        </ul>-->
+
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div><!-- /.blog-card -->
+
     </div>
 
+<div class="add-box">
+    <i class="fas fa-plus" id="add"></i>
+    <a th:href="@{/addhikingevent}">Add new event</a>
+</div>
+    <!--<div class="container" th:each="ev: ${#lists.sort(hikingevents, byEventName)}">-->
+    <!--    <div class="card">-->
+    <!--        <header class="card-header">-->
+    <!--            <h1 class="event-name" th:text="${ev.eventName}">Event Name</h1>-->
+    <!--        </header>-->
+    <!--        <header class="card-header">-->
+    <!--            <h1 class="event-day"-->
+    <!--                th:text="${#dates.format(ev.startEvent,'dd.MM.yyyy')+' - '+#dates.format(ev.endEvent,'dd.MM.yyyy')}">-->
+    <!--                Event Date</h1>-->
+    <!--        </header>-->
+    <!--        <header class="card-header">-->
+    <!--            <h1 class="event-submition"-->
+    <!--                th:text="${'SignUp deadline: '+#dates.format(ev.signUpDeadline,'dd.MM.yyyy')}">-->
+    <!--                Event SignUp date</h1>-->
+    <!--        </header>-->
 
-</div>
-</div>
+    <!--        <div class="card-content">-->
+    <!--            <p class="event-content" th:text="${ev.description}">Lorem ipsum dolor sit amet, consectetur adipisicing-->
+    <!--                elit, sed do eiusmod tempor incididunt ut labore et-->
+    <!--                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut-->
+    <!--                aliquip-->
+    <!--                ex ea commodo consequat.</p>-->
+    <!--        </div>-->
+
+    <!--        <footer class="bottom-more">-->
+    <!--            <a th:href="@{/guide/editevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i-->
+    <!--                    class="fas fa-pen"></i></span></span></a>-->
+    <!--            <a href="#" class="option"><span><i class="fas fa-list-ul"></i></span></a>-->
+    <!--            <a th:href="@{/guide/deletehikingevent/{id}(id=${ev.eventId})}" href="#" class="option"><span><i-->
+    <!--                    class="fas fa-trash"-->
+    <!--                    onclick="return confirm('Are you sure you want to delete this event?')"></i></span></a>-->
+    <!--            <div class="more">-->
+    <!--                <a href="#"><span>more...</span></a>-->
+    <!--            </div>-->
+    <!--        </footer>-->
+    <!--    </div>-->
+
+
+    <!--</div>-->
+    <!--</div>-->
 </body>
 </html>
-
