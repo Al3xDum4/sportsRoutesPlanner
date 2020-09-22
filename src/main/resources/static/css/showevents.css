@@ -74,8 +74,9 @@ margin: 20px;
 p{
 line-height: 1;
 }
-.event-details{
 
+.event-details{
+text-align:center;
 margin-top:10px;
 padding: 20px;
 width:auto;
@@ -86,10 +87,20 @@ height:auto
 text-align: center;
 font-family: 'Amatic SC', cursive;
 font-family: 'Love Ya Like A Sister', cursive;
+font-size:34px;
 }
+
+.route-name{
+font-family: 'Amatic SC', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-size:34px;
+}
+
 
 .event-dates{
 text-align: center;
+}
+
 
 text-decoration:none;
 }
@@ -110,9 +121,11 @@ font-size:20px;
 .route-name{
 font-family: 'Amatic SC', cursive;
 font-family: 'Love Ya Like A Sister', cursive;
+font-size:34px;
 
 }
 .route-details i{
+text-align:center;
 font-size:34px;
 }
 

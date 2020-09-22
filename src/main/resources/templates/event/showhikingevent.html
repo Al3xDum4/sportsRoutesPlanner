@@ -27,7 +27,9 @@
 
 
     <div class="event-details">
-        <h1 class="event-name" th:text="${event.eventName}">Title</h1>
+
+        <span class="event-name" th:text="${event.eventName}">Title</span>
+        </br>
         </br>
         <div class="event-dates">
             <i class='far fa-calendar-check'></i>
@@ -35,23 +37,27 @@
                 Duration</a>
             </br>
             </br>
+            <i class="fas fa-users"></i>
             <a th:text="'Group maximum capacity: '+ ${event.maxParticipants} ">Maximum capacity</a>
             </br>
             </br>
+            <i class="fas fa-user-check"></i>
             <a th:text="'Available places for this event: '+ ${event.maxParticipants} ">Places available</a>
             </br>
             </br>
+            <i class="fas fa-male"></i>
             <a th:text="'Your journey will be guided by: '+ ${guide.firstName}+' '+${guide.lastName}">Guide Name</a>
         </div>
         </br>
+    </div>
         <h3 class="event-description" th:text="${event.description}">Event Description</h3>
         </br>
         </br>
 
-    </div>
+
     <div class="route-details">
         <i class="fas fa-hiking"></i>
-        <a class="route-name" th:text="${route.routeName}">Route name</a>
+        <span class="route-name" th:text="${route.routeName}">Route name</span>
         </br>
     </div>
     <h3 class="route-description" th:text="${route.description}">Route Description</h3>
@@ -79,7 +85,7 @@
             <tr>
                 <td class="route-difficultyLevel" th:text="${route.difficultyLevel}">Route Difficulty Level</td>
 
-                <td class="route-distance" th:text="${route.distance}+' km'">Route distance</td>
+                <td class="route-distance" th:text="${route.distance}+'km'">Route distance</td>
 
                 <td class="route-duration" th:text="${route.duration}+'H'">Route duration</td>
 
