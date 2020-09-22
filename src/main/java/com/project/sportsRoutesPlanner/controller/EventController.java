@@ -46,6 +46,17 @@ public class EventController {
         return "event/showallhikingevents";
     }
 
+    @GetMapping("showhikingevent/{id}")
+    public String showHikingEvent(Model model, @PathVariable Integer id) {
+        Event event = eventService.findById(id);
+        Route route=eventService.findRouteByEvent(event.getEventId());
+        User guide=eventService.findGuideByEvent(id);
+        model.addAttribute("event", event);
+        model.addAttribute("route",route);
+        model.addAttribute("guide",guide);
+        return "event/showhikingevent";
+    }
+
     @GetMapping("/addhikingevent")
     public String addEvent(Model model) {
       List<Route> routeList = routeService.findHikings();
