@@ -35,7 +35,9 @@ opacity: 0.8;
     width: 400px;
     height: 700px;
     perspective: 1000px;
-    margin: 5px;
+    margin: 20px;
+    margin-left: 5px;
+
 }
 
 .blog-card {
@@ -57,6 +59,29 @@ opacity: 0.8;
   background: url('../img/event.jpg') center no-repeat;
   background-size: 100%;
 }
+.price{
+position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #F08080;
+    color: #fff;
+    padding: 0.8em;
+
+    span {
+      display: block;
+      text-align: center;
+    }
+    .money {
+      font-weight: 700;
+      font-size: 24px;
+      text-shadow: 2px 3px 2px rgba(#000, 0.18);
+    }
+    .currency {
+          text-transform: uppercase;
+          font-size: 12px;
+        }
+        }
+
 .blog-card a{
 color:#fff;
   text-decoration:none;

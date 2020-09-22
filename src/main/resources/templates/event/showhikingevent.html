@@ -11,13 +11,82 @@
 </head>
 <body>
 <div class="container">
-    <div class="route-img">
-        <img src="map.jpg" alt="Route map">
-    </div>
-    <div class="details">
-        <h1>Bye!Bye!:))))...</h1>
+
+    <div class="container-img">
+        <div class="submit">
+            <p>SignUp ends on:</p>
+            <i class='far fa-calendar-check'></i>
+            <a th:text="${#calendars.format(event.signUpDeadline,'MMMM, dd')}">SignUp Deadline</a>
+            </br>
+            </br>
+            <p th:text="'Price: '+${event.price}+'€/person'">Price</p>
+            <button class="btn-submit">Join Event</button>
+        </div>
+
     </div>
 
+
+    <div class="event-details">
+        <h1 class="event-name" th:text="${event.eventName}">Title</h1>
+        </br>
+        <div class="event-dates">
+            <i class='far fa-calendar-check'></i>
+            <a th:text="${#calendars.format(event.startEvent,'MMMM, dd')+' to '+#calendars.format(event.endEvent,'MMMM, dd')}">
+                Duration</a>
+            </br>
+            </br>
+            <a th:text="'Group maximum capacity: '+ ${event.maxParticipants} ">Maximum capacity</a>
+            </br>
+            </br>
+            <a th:text="'Available places for this event: '+ ${event.maxParticipants} ">Places available</a>
+            </br>
+            </br>
+            <a th:text="'Your journey will be guided by: '+ ${guide.firstName}+' '+${guide.lastName}">Guide Name</a>
+        </div>
+        </br>
+        <h3 class="event-description" th:text="${event.description}">Event Description</h3>
+        </br>
+        </br>
+
+    </div>
+    <div class="route-details">
+        <i class="fas fa-hiking"></i>
+        <a class="route-name" th:text="${route.routeName}">Route name</a>
+        </br>
+    </div>
+    <h3 class="route-description" th:text="${route.description}">Route Description</h3>
+    </br>
+    <div class="route-details">
+        <table>
+            <tr>
+                <th>
+                    <i class='far fa-map'></i></br>
+                    DIFFICULTY LEVEL
+                </th>
+                <th>
+                    <i class='fas fa-ruler'></i></br>
+                    ROUTE DISTANCE
+                </th>
+                <TH>
+                    <i class="fas fa-hourglass-half"></i></br>
+                    DURATION
+                </TH>
+                <th>
+                    <i class="fas fa-level-up-alt"></i></br>
+                    MAXIMUM ALTITUDE
+                </th>
+            </tr>
+            <tr>
+                <td class="route-difficultyLevel" th:text="${route.difficultyLevel}">Route Difficulty Level</td>
+
+                <td class="route-distance" th:text="${route.distance}+' km'">Route distance</td>
+
+                <td class="route-duration" th:text="${route.duration}+'H'">Route duration</td>
+
+                <td class="route-maxAltitude" th:text="${route.maxAltitude}+'m'">Route maxAltitude</td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 </body>
