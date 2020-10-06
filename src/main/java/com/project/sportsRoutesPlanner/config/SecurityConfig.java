@@ -75,6 +75,7 @@ public class SecurityConfig {
                             .antMatchers("/css/**").permitAll()
                             .antMatchers("/img/**").permitAll()
                             .antMatchers("/fonts/**").permitAll()
+                            .antMatchers("./route-background/**").permitAll()
                             .antMatchers("/").permitAll()
                             .anyRequest().authenticated()
                             .and()
