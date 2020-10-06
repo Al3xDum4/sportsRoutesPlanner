@@ -31,6 +31,8 @@ public class Route {
 
     private DifficultyLevel difficultyLevel;
 
+    private String backgroundImg;
+
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     private List<Photo> photosList;
 
