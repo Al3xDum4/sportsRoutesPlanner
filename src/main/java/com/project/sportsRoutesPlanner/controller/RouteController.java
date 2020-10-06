@@ -8,11 +8,16 @@ import com.project.sportsRoutesPlanner.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -24,14 +29,14 @@ public class RouteController {
     private RouteService routeService;
 
     @GetMapping("allroutes")
-    public String showAllRoutes(Model model){
+    public String showAllRoutes(Model model) {
         List<Route> routeList = routeService.findAll();
         model.addAttribute("routes", routeList);
         return "route/showallroutes";
     }
 
     @GetMapping("allhikingroutes")
-    public String showAllHikingRoutes(Model model){
+    public String showAllHikingRoutes(Model model) {
         List<Route> hikings = routeService.findHikings();
         model.addAttribute("hikingroutes", hikings);
         model.addAttribute("byRouteName", Comparator.comparing(Route::getRouteName));
@@ -39,7 +44,7 @@ public class RouteController {
     }
 
     @GetMapping("/addhikingroute")
-    public String addRoute(Model model){
+    public String addRoute(Model model) {
         List<DifficultyLevel> difficultyLevels = routeService.allDifficultLevels();
         model.addAttribute("models", new Route());
         model.addAttribute("diflevels", difficultyLevels);
@@ -48,7 +53,12 @@ public class RouteController {
 
     @PostMapping("/addhikingroute")
     public String addHikingRoute(@ModelAttribute Route route, String routeName, String description, Double distance,
-                           Double maxAltitude, Double duration, String difficultyLevel) {
+                                 Double maxAltitude, Double duration, String difficultyLevel,
+                                 @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+
+        route.setBackgroundImg(fileName);
         route.setRouteName(routeName);
         route.setDescription(description);
         route.setDistance(distance);
@@ -56,7 +66,22 @@ public class RouteController {
         route.setDuration(duration);
         route.setRouteCategory(RouteCategory.HIKING);
         route.setDifficultyLevel(DifficultyLevel.valueOf(difficultyLevel));
+
         routeService.save(route);
+
+        String uploadDir = "./route-background/" + route.getRouteId();
+        Path uploadPath = Paths.get(uploadDir);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new IOException("Could not save uploaded file: " + fileName);
+        }
+
         return "redirect:/allhikingroutes";
     }
 

@@ -6,19 +6,19 @@
     <nav th:insert="menu.html::menu_nav"></nav>
     <link href="../../static/css/routes.css" th:href="@{/css/routes.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $(document).ready(function() {
             $('select').material_select();
         });
-
     </script>
 </head>
 <body class="addroute">
 <div class="box">
     <h1 id="title">New route</h1>
 
-    <form class="form" th:action="@{/addhikingroute}" autocomplete="off" method="post">
+    <form class="form" th:action="@{/addhikingroute}" autocomplete="off" method="post" enctype="multipart/form-data">
         <div class="input-box">
             <input class="input-field" type="text" id="routeName" name="routeName" placeholder="Route name" required>
         </div>
@@ -56,19 +56,34 @@
         </div>
         <br/>
 
-        <div class="input-box">
+        <div class="img-box">
+            <label for="routeBackground">Background image</label>
             <input class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">
-        </div>
-        <br/>
-
-        <div class="input-box">
-            <input class="input-field" type="file" id="routeMapImg" name="routeMapImg" accept="image/*">
+            <img id="thumbnail" alt="Background Preview" width="158" height="150" hspace="10">
         </div>
         <br/>
 
         <button type="submit" value="Submit">Submit</button>
     </form>
 </div>
+<script>
+    $(document).ready(function(){
+        $('#routeBackground').change(function(){
+                showImageThumbnail(this);
+            });
+    });
+
+    function showImageThumbnail(fileInput) {
+            file = fileInput.files[0];
+            reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#thumbnail').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+
+</script>
 
 </body>
 </html>
