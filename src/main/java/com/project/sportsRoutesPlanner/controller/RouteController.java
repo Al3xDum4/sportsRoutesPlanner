@@ -67,9 +67,9 @@ public class RouteController {
         route.setRouteCategory(RouteCategory.HIKING);
         route.setDifficultyLevel(DifficultyLevel.valueOf(difficultyLevel));
 
-        routeService.save(route);
+        Route savedRoute = routeService.save(route);
 
-        String uploadDir = "./route-background/" + route.getRouteId();
+        String uploadDir = "./route-background/" + savedRoute.getRouteId();
         Path uploadPath = Paths.get(uploadDir);
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);

@@ -19,8 +19,8 @@ public class RouteService {
         return routeRepository.findAll();
     }
 
-    public void save(Route route) {
-        routeRepository.save(route);
+    public Route save(Route route) {
+        return routeRepository.save(route);
     }
 
     public Route findById(Integer id) {
