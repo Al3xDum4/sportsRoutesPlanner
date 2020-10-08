@@ -11,61 +11,67 @@
 </head>
 <body>
 <nav th:insert="menu.html::menu_nav"></nav>
-<!--<div class="add-box">-->
+<div class="add-box">
     <a th:href="@{/addhikingroute}" class="add-button">
         <i class="fas fa-plus" id="add"></i>
         <span>new route</span>
     </a>
-    <hr>
-<!--</div>-->
+</div>
 
-<div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
-    <div class="route-card" th:style="'background-image:url(' + @{${hr.backgroundImg}} + ') no-repeat center center fixed;'">
-        <div class="route-card-front">
-            <div class="route-card-header">
-                <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
+<hr>
+<div class="big-container">
+    <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
+        <div class="route-card"
+             th:style="'background-image:url(' + @{${hr.backgroundImg}} + ') no-repeat center center fixed;'">
+            <div class="route-card-front">
+                <div class="route-card-header">
+                    <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
+                </div>
+
+                <div class="route-card-content">
+                    <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur
+                        adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip
+                        ex ea commodo consequat.</p>
+                </div>
+
+                <footer class="bottom-more">
+                    <div class="items-bottom">
+                        <a th:href="@{/edithikingroute/{id} (id=${hr.routeId})}" class="option"><span><i
+                                class="fas fa-pen"></i></span></span></a>
+                        <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
+                        <a th:href="@{/deletehikingroute/{id} (id=${hr.routeId})}" class="option"><span><i
+                                class="fas fa-trash"></i></span></a>
+                    </div>
+                    <div class="more">
+                        <a href="#"><span>more...</span></a>
+                    </div>
+                </footer>
             </div>
 
-            <div class="route-card-content">
-                <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat.</p>
-            </div>
+            <div class="route-card-back">
+                <div class="back-content">
+                    <div class="back-content-item">
+                        <label>Difficulty:</label>
+                        <p class="route-difficulty" th:text="${hr.difficultyLevel}">jhfsjfjsgf</p>
+                    </div>
 
-            <footer class="bottom-more">
-                <div class="items-bottom">
-                    <a th:href="@{/edithikingroute/{id} (id=${hr.routeId})}" class="option"><span><i class="fas fa-pen"></i></span></span></a>
-                    <a href="#" class="option"><span><i class="fas fa-list-ul details"></i></span></a>
-                    <a th:href="@{/deletehikingroute/{id} (id=${hr.routeId})}" class="option"><span><i class="fas fa-trash"></i></span></a>
-                </div>
-                <div class="more">
-                    <a href="#"><span>more...</span></a>
-                </div>
-            </footer>
-        </div>
+                    <div class="back-content-item">
+                        <label>Distance:</label>
+                        <p class="route-distance" th:text="${hr.distance}">jhfsjfjsgf</p>
+                    </div>
 
-        <div class="route-card-back">
-            <div class="back-content">
-                <div class="back-content-item">
-                    <label>Difficulty:</label>
-                    <p class="route-difficulty" th:text="${hr.difficultyLevel}">jhfsjfjsgf</p>
-                </div>
+                    <div class="back-content-item">
+                        <label>Ascension:</label>
+                        <p class="route-ascension" th:text="${hr.maxAltitude}">jhfsjfjsgf</p>
+                    </div>
 
-                <div class="back-content-item">
-                    <label>Distance:</label>
-                    <p class="route-distance" th:text="${hr.distance}">jhfsjfjsgf</p>
-                </div>
-
-                <div class="back-content-item">
-                    <label>Ascension:</label>
-                    <p class="route-ascension" th:text="${hr.maxAltitude}">jhfsjfjsgf</p>
-                </div>
-
-                <div class="back-content-item">
-                    <label>Duration:</label>
-                    <p class="route-duration" th:text="${hr.duration}">jhfsjfjsgf</p>
+                    <div class="back-content-item">
+                        <label>Duration:</label>
+                        <p class="route-duration" th:text="${hr.duration}">jhfsjfjsgf</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,5 +93,6 @@ $('.container .route-card').mouseleave(function(){
 $('.more').click(function(){
     $(this).parent().find('.items-bottom').toggleClass('openDiv');
 });
+
 
 </script>
