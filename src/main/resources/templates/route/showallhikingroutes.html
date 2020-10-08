@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Hiking Routes</title>
-    <nav th:insert="menu.html::menu_nav"></nav>
+
     <link href="../../static/css/routes.css" th:href="@{/css/routes.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<div class="add-box">
-    <a th:href="@{/addhikingroute}">
-        <i class="fas fa-plus" id="add"></i>
+<nav th:insert="menu.html::menu_nav"></nav>
+<!--<div class="add-box">-->
+    <a th:href="@{/addhikingroute}" class="add-button">
+        <i class="fas fa-plus"></i>
         <span>new route</span>
     </a>
     <hr>
-</div>
+<!--</div>-->
 
 <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
     <div class="route-card" th:style="'background-image:url(' + @{${hr.backgroundImg}} + ') no-repeat center center fixed;'">

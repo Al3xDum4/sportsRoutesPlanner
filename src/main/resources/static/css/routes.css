@@ -86,8 +86,12 @@ header h1 {
     text-align: center;
 }
 
-.add-box {
-    display: inline;
+.add-button {
+    margin: 5rem 0 5rem 0;
+    background-color: #566967;
+    color: white;
+    padding: 2rem;
+    border-radius: 20rem;
 }
 
 #add {
