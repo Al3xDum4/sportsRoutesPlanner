@@ -7,7 +7,7 @@
 .container {
     display: inline-block;
     background-color: transparent;
-    width: 300px;
+    width: 30%;
     height: 300px;
     perspective: 1000px;
     margin: 5px;
