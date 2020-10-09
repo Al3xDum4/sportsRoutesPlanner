@@ -22,7 +22,7 @@
 <div class="big-container">
     <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
         <div class="route-card"
-             th:style="'background-image:url(' + @{${hr.backgroundImg}} + ') no-repeat center center fixed;'">
+             th:style="'background-image:url(' + @{${hr.backgroundImgPath}} + ') no-repeat center center fixed;'">
             <div class="route-card-front">
                 <div class="route-card-header">
                     <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>

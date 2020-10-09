@@ -40,4 +40,14 @@ public class Route {
     @JsonIgnore
     private List<Event> event;
 
+    @Transient
+    public String getBackgroundImgPath() {
+        if (backgroundImg == null || routeId == null) {
+            return null;
+        }
+
+        return "/route-background/" + routeId + "/" + backgroundImg;
+
+    }
+
 }
