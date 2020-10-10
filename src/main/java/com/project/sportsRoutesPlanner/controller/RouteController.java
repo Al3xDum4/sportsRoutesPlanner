@@ -57,8 +57,8 @@ public class RouteController {
                                  @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-
         route.setBackgroundImg(fileName);
+
         route.setRouteName(routeName);
         route.setDescription(description);
         route.setDistance(distance);

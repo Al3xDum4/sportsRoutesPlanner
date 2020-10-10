@@ -33,6 +33,9 @@ public class Route {
 
     private String backgroundImg;
 
+//    @Lob
+//    private byte[] image;
+
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     private List<Photo> photosList;
 
@@ -45,9 +48,6 @@ public class Route {
         if (backgroundImg == null || routeId == null) {
             return null;
         }
-
         return "/route-background/" + routeId + "/" + backgroundImg;
-
     }
-
 }

@@ -19,6 +19,8 @@
 </div>
 
 <hr>
+
+<img th:src="/@{${route.backgroundImg}}">
 <div class="big-container">
     <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
         <div class="route-card"

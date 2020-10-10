@@ -92,6 +92,8 @@ public class SecurityConfig {
                 auth.userDetailsService(databaseUserDetailsService).passwordEncoder(passwordEncoder());
             }
 
+
+
             @Bean
             public PasswordEncoder passwordEncoder() {
                 return new BCryptPasswordEncoder();
