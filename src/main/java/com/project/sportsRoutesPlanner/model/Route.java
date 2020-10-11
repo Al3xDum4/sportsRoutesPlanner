@@ -33,8 +33,8 @@ public class Route {
 
     private String backgroundImg;
 
-//    @Lob
-//    private byte[] image;
+    @Lob
+    private byte[] image;
 
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     private List<Photo> photosList;
