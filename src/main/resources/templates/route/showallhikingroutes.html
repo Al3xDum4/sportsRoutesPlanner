@@ -84,7 +84,8 @@ $('.container .route-card .details').click(function(e){
     $(this).closest('.container .route-card').toggleClass("flip");
 });
 
-$('.container .route-card').mouseleave(function(){
+$('.container .route-card').mouseleave(function(e){
+    e.preventDefault();
     $(this).removeClass('flip');
     $('.items-bottom').removeClass('openDiv');
 });
