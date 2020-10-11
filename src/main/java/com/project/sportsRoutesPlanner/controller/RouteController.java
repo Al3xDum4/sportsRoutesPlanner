@@ -5,6 +5,7 @@ import com.project.sportsRoutesPlanner.model.Event;
 import com.project.sportsRoutesPlanner.model.Route;
 import com.project.sportsRoutesPlanner.model.RouteCategory;
 import com.project.sportsRoutesPlanner.service.RouteService;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -56,7 +59,7 @@ public class RouteController {
                                  Double maxAltitude, Double duration, String difficultyLevel,
                                  @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
 
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        //String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         route.setImage(multipartFile.getBytes());
 
         route.setRouteName(routeName);
@@ -69,21 +72,32 @@ public class RouteController {
 
         Route savedRoute = routeService.save(route);
 
-        String uploadDir = "./route-background/" + savedRoute.getRouteId();
-        Path uploadPath = Paths.get(uploadDir);
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
-
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            Path filePath = uploadPath.resolve(fileName);
-            System.out.println(filePath.toFile().getAbsolutePath());
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            throw new IOException("Could not save uploaded file: " + fileName);
-        }
+//        String uploadDir = "./route-background/" + savedRoute.getRouteId();
+//        Path uploadPath = Paths.get(uploadDir);
+//        if (!Files.exists(uploadPath)) {
+//            Files.createDirectories(uploadPath);
+//        }
+//
+//        try (InputStream inputStream = multipartFile.getInputStream()) {
+//            Path filePath = uploadPath.resolve(fileName);
+//            System.out.println(filePath.toFile().getAbsolutePath());
+//            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+//        } catch (IOException e) {
+//            throw new IOException("Could not save uploaded file: " + fileName);
+//        }
 
         return "redirect:/allhikingroutes";
+    }
+
+    @GetMapping("/route/image/{id}")
+    public void showRouteImage(@PathVariable Integer id,
+                               HttpServletResponse response) throws IOException {
+        response.setContentType("image/jpeg"); // Or whatever format you wanna use
+
+        Route route = routeService.findById(id);
+
+        InputStream is = new ByteArrayInputStream(route.getImage());
+        IOUtils.copy(is, response.getOutputStream());
     }
 
     @GetMapping("/edithikingroute/{id}")
