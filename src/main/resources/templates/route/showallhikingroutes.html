@@ -80,10 +80,6 @@
 </html>
 
 <script>
-$(document).on('click','.tabulator-page',function(){
-    $(window).scrollTop($(".tabulator").offset().top);
-});
-
 $('.container .route-card .details').click(function(e){
     $(this).closest('.container .route-card').toggleClass("flip");
 });
@@ -93,7 +89,8 @@ $('.container .route-card').mouseleave(function(){
     $('.items-bottom').removeClass('openDiv');
 });
 
-$('.more').click(function(){
+$('.more').click(function(e){
+    e.preventDefault();
     $(this).parent().find('.items-bottom').toggleClass('openDiv');
 });
 
