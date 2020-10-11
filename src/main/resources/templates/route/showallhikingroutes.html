@@ -24,19 +24,14 @@
 <div class="big-container">
     <div class="container" th:each="hr: ${#lists.sort(hikingroutes, byRouteName)}">
         <div class="route-card"
-             th:style="'background-image:url(' + @{${hr.backgroundImgPath}} + ') no-repeat center center fixed;'">
+             th:style="'background-image:url(' + @{${hr.backgroundImg}} + ') no-repeat center center fixed;'">
             <div class="route-card-front">
                 <div class="route-card-header">
                     <h1 class="route-title" th:text="${hr.routeName}">Route title</h1>
                 </div>
 
                 <div class="route-card-content">
-                    <p class="route-content" th:text="${hr.description}">Lorem ipsum dolor sit amet, consectetur
-                        adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip
-                        ex ea commodo consequat.</p>
+                    <p class="route-content" th:text="${hr.description}"></p>
                 </div>
 
                 <footer class="bottom-more">
@@ -57,22 +52,22 @@
                 <div class="back-content">
                     <div class="back-content-item">
                         <label>Difficulty:</label>
-                        <p class="route-difficulty" th:text="${hr.difficultyLevel}">jhfsjfjsgf</p>
+                        <p class="route-difficulty" th:text="${hr.difficultyLevel}"></p>
                     </div>
 
                     <div class="back-content-item">
                         <label>Distance:</label>
-                        <p class="route-distance" th:text="${hr.distance}">jhfsjfjsgf</p>
+                        <p class="route-distance" th:text="${hr.distance}"></p>
                     </div>
 
                     <div class="back-content-item">
                         <label>Ascension:</label>
-                        <p class="route-ascension" th:text="${hr.maxAltitude}">jhfsjfjsgf</p>
+                        <p class="route-ascension" th:text="${hr.maxAltitude}"></p>
                     </div>
 
                     <div class="back-content-item">
                         <label>Duration:</label>
-                        <p class="route-duration" th:text="${hr.duration}">jhfsjfjsgf</p>
+                        <p class="route-duration" th:text="${hr.duration}"></p>
                     </div>
                 </div>
             </div>
