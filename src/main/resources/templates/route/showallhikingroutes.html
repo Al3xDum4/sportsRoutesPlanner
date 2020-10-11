@@ -10,14 +10,12 @@
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-<div class="nav-content">
-    <nav th:insert="menu.html::menu_nav"></nav>
-    <div class="add-box">
-        <a th:href="@{/addhikingroute}" class="add-button">
-            <i class="fas fa-plus" id="add"></i>
-            <span>new route</span>
-        </a>
-    </div>
+<nav th:insert="menu.html::menu_nav"></nav>
+<div class="add-box">
+    <a th:href="@{/addhikingroute}" class="add-button">
+        <i class="fas fa-plus" id="add"></i>
+        <span>new route</span>
+    </a>
 </div>
 <hr>
 <div class="big-container">
@@ -96,6 +94,7 @@ $('.more').click(function(e){
     e.preventDefault();
     $(this).parent().find('.items-bottom').toggleClass('openDiv');
 });
+
 
 
 
