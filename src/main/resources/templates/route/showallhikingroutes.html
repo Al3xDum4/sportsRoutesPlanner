@@ -80,8 +80,9 @@
 </html>
 
 <script>
-$('.container .route-card .details').click(function(){
+$('.container .route-card .details').click(function(e){
     $(this).closest('.container .route-card').toggleClass("flip");
+    e.preventDefault();
 });
 
 $('.container .route-card').mouseleave(function(){
