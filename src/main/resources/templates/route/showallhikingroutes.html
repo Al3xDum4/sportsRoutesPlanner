@@ -80,9 +80,12 @@
 </html>
 
 <script>
+$(document).on('click','.tabulator-page',function(){
+    $(window).scrollTop($(".tabulator").offset().top);
+});
+
 $('.container .route-card .details').click(function(e){
     $(this).closest('.container .route-card').toggleClass("flip");
-    e.preventDefault();
 });
 
 $('.container .route-card').mouseleave(function(){
