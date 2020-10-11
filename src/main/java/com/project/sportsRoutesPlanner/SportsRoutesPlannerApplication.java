@@ -24,6 +24,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @SpringBootApplication
 public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvcConfigurer {
@@ -67,6 +69,11 @@ public class SportsRoutesPlannerApplication implements CommandLineRunner, WebMvc
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
-    }
 
+        Path backgroundUploadDir = Paths.get("./route-background/");
+        String backgroundUploadPath = backgroundUploadDir.toFile().getAbsolutePath();
+
+        registry.addResourceHandler("/route-background/**").addResourceLocations("file:/" + backgroundUploadPath + "/");
+    }
 }
+
