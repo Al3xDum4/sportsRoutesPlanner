@@ -81,6 +81,7 @@
 
 <script>
 $('.container .route-card .details').click(function(e){
+    e.preventDefault();
     $(this).closest('.container .route-card').toggleClass("flip");
 });
 
