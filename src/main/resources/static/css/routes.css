@@ -24,6 +24,10 @@
     margin: 5px;
 }
 
+.alternative-img {
+    margin: 10rem 0 0 0;
+}
+
 .route-card {
     position: absolute;
     width: 100%;

@@ -112,11 +112,11 @@ public class RouteController {
     public void fromDatabaseAsHttpServResp(@PathVariable("id") Integer id, HttpServletResponse response)
             throws SQLException, IOException {
 
-        Optional<Route> primeMinisterOfIndia = Optional.ofNullable(routeService.findById(id));
+        Optional<Route> route = Optional.ofNullable(routeService.findById(id));
 
-        if (primeMinisterOfIndia.isPresent()) {
+        if (route.isPresent()) {
 
-            byte[] image = primeMinisterOfIndia.get().getImage();
+            byte[] image = route.get().getImage();
 
             StreamUtils.copy(image, response.getOutputStream());
         }
