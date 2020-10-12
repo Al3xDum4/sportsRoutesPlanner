@@ -59,19 +59,9 @@
         <div class="img-box">
             <label for="routeBackground">Background image</label>
             <input class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">
-            <img th:field="*{image}" id="image" alt="Background Preview" width="158" height="150" hspace="10">
+            <img th:field="*{image}" name="thumbnail" id="image" alt="Background Preview" width="158" height="150" hspace="10">
         </div>
         <br/>
-
-<!--        <div class="input-box">-->
-<!--            <input th:field="*{routeBackground}" class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">-->
-<!--        </div>-->
-<!--        <br/>-->
-
-<!--        <div class="input-box">-->
-<!--            <input th:field="*{routeMapImg}" class="input-field" type="file" id="routeMapImg" name="routeMapImg" accept="image/*">-->
-<!--        </div>-->
-<!--        <br/>-->
 
         <button type="submit" value="Submit">Save</button>
     </form>

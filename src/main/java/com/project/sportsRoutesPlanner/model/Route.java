@@ -31,23 +31,13 @@ public class Route {
 
     private DifficultyLevel difficultyLevel;
 
-    private String backgroundImg;
-
     @Lob
     private byte[] image;
-
-    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
-    private List<Photo> photosList;
 
     @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Event> event;
 
-    @Transient
-    public String getBackgroundImgPath() {
-        if (backgroundImg == null || routeId == null) {
-            return null;
-        }
-        return "/route-background/" + routeId + "/" + backgroundImg;
-    }
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
+    private List<Photo> photosList;
 }
