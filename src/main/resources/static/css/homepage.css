@@ -9,6 +9,7 @@ body {
 }
 
 .slick-slide {
+    margin: 10rem 0 0 0;
     width: 10vw;
     box-sizing: border-box;
 }
