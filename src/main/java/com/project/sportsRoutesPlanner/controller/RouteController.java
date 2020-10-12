@@ -7,6 +7,10 @@ import com.project.sportsRoutesPlanner.model.RouteCategory;
 import com.project.sportsRoutesPlanner.service.RouteService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -21,9 +25,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class RouteController {
@@ -60,7 +67,7 @@ public class RouteController {
                                  @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
 
         //String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        route.setImage(multipartFile.getBytes());
+        route.setImage((Blob) multipartFile);
 
         route.setRouteName(routeName);
         route.setDescription(description);
@@ -89,15 +96,29 @@ public class RouteController {
         return "redirect:/allhikingroutes";
     }
 
+//    @GetMapping("/route/image/{id}")
+//    public void showRouteImage(@PathVariable Integer id,
+//                               HttpServletResponse response) throws IOException {
+//        response.setContentType("image/jpeg"); // Or whatever format you wanna use
+//
+//        Route route = routeService.findById(id);
+//
+//        InputStream is = new ByteArrayInputStream(route.getImage());
+//        IOUtils.copy(is, response.getOutputStream());
+//    }
+
     @GetMapping("/route/image/{id}")
-    public void showRouteImage(@PathVariable Integer id,
-                               HttpServletResponse response) throws IOException {
-        response.setContentType("image/jpeg"); // Or whatever format you wanna use
+    public ResponseEntity<byte[]> fromDatabaseAsResEntity(@PathVariable("id") Integer id) throws SQLException {
 
-        Route route = routeService.findById(id);
+        Optional<Route> route = Optional.ofNullable(routeService.findById(id));
+        byte[] imageBytes = null;
+        if (route.isPresent()) {
 
-        InputStream is = new ByteArrayInputStream(route.getImage());
-        IOUtils.copy(is, response.getOutputStream());
+            imageBytes = route.get().getImage().getBytes(1,
+                    (int) route.get().getImage().length());
+        }
+
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
     }
 
     @GetMapping("/edithikingroute/{id}")
