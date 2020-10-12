@@ -64,10 +64,10 @@ public class RouteController {
     @PostMapping("/addhikingroute")
     public String addHikingRoute(@ModelAttribute Route route, String routeName, String description, Double distance,
                                  Double maxAltitude, Double duration, String difficultyLevel,
-                                 @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
+                                 @RequestParam("routeBackground") Blob file) throws IOException {
 
         //String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        route.setImage((Blob) multipartFile);
+        route.setImage(file);
 
         route.setRouteName(routeName);
         route.setDescription(description);
