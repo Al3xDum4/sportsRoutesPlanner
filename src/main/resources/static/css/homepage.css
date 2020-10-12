@@ -26,3 +26,7 @@ body {
   right: 10px;
   z-index: 1;
 }
+
+.button-container {
+    margin: 10rem 0 0 0;
+}
