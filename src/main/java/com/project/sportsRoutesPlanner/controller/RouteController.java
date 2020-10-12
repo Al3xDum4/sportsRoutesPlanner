@@ -110,7 +110,7 @@ public class RouteController {
 
     @GetMapping(value = "/route/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public void fromDatabaseAsHttpServResp(@PathVariable("id") Integer id, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws IOException {
 
         Optional<Route> route = Optional.ofNullable(routeService.findById(id));
 
