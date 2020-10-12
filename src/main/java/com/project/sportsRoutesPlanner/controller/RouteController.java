@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StreamUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -64,10 +65,10 @@ public class RouteController {
     @PostMapping("/addhikingroute")
     public String addHikingRoute(@ModelAttribute Route route, String routeName, String description, Double distance,
                                  Double maxAltitude, Double duration, String difficultyLevel,
-                                 @RequestParam("routeBackground") Blob file) throws IOException {
+                                 @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
 
         //String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        route.setImage(file);
+        route.setImage(multipartFile.getBytes());
 
         route.setRouteName(routeName);
         route.setDescription(description);
@@ -107,18 +108,18 @@ public class RouteController {
 //        IOUtils.copy(is, response.getOutputStream());
 //    }
 
-    @GetMapping("/route/image/{id}")
-    public ResponseEntity<byte[]> fromDatabaseAsResEntity(@PathVariable("id") Integer id) throws SQLException {
+    @GetMapping(value = "/route/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public void fromDatabaseAsHttpServResp(@PathVariable("id") Integer id, HttpServletResponse response)
+            throws SQLException, IOException {
 
-        Optional<Route> route = Optional.ofNullable(routeService.findById(id));
-        byte[] imageBytes = null;
-        if (route.isPresent()) {
+        Optional<Route> primeMinisterOfIndia = Optional.ofNullable(routeService.findById(id));
 
-            imageBytes = route.get().getImage().getBytes(1,
-                    (int) route.get().getImage().length());
+        if (primeMinisterOfIndia.isPresent()) {
+
+            byte[] image = primeMinisterOfIndia.get().getImage();
+
+            StreamUtils.copy(image, response.getOutputStream());
         }
-
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
     }
 
     @GetMapping("/edithikingroute/{id}")
