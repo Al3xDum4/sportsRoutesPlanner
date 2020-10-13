@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>All hiking events</title>
-    <nav th:insert="menu.html::menu_nav"></nav>
+
     <link href="../../static/css/vents.css" th:href="@{/css/events.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
             src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
-<body>
+<body style="margin: 0;">
+<div class="nav-content">
+    <nav th:insert="menu.html::menu_nav"></nav>
+    <div class="add-box">
+        <a th:href="@{/addhikingevent}"class="add-button">
+            <i class="fas fa-plus" id="add"></i>
+            <span>new event</span>
+        </a>
+    </div>
+</div>
 
-
-
+<div class="big-container">
 <div class="container" th:each="ev: ${#lists.sort(hikingevents, byEventName)}">
 
     <div class="blog-card">
@@ -62,10 +70,7 @@
 
     </div>
 
-<div class="add-box">
-    <i class="fas fa-plus" id="add"></i>
-    <a th:href="@{/addhikingevent}">Add new event</a>
-</div>
+
     <!--<div class="container" th:each="ev: ${#lists.sort(hikingevents, byEventName)}">-->
     <!--    <div class="card">-->
     <!--        <header class="card-header">-->
@@ -106,5 +111,6 @@
 
     <!--</div>-->
     <!--</div>-->
+</div>
 </body>
 </html>
