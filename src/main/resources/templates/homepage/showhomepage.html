@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Route Planner</title>
-    <nav th:insert="menu.html::menu_nav"></nav>
     <link href="../../static/css/homepage.css" th:href="@{/css/homepage.css}" rel="stylesheet"/>
     <!--   slick -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" th:href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" th:href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
+    <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
 <div class="container">
