@@ -53,9 +53,14 @@ $('.carousel-event').slick({
     slidesToScroll: 3,
     centerMode: true,
     centerPadding: '60px',
-   <!--  variableWidth: true, -->
-<!--    prevArrow: $('.prev'),-->
-<!--    nextArrow: $('.next')-->
+    responsive: [
+        {
+            breakpoint: 991,
+            settings:{
+                slidesToShow: 1
+            }
+        }
+    ]
 });
 
 </script>
