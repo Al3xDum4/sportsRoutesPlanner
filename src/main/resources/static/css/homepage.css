@@ -48,9 +48,30 @@ body {
 }
 
 .slick-next{
+    z-index: 999;
     right: 10px !important;
 }
 
 .slick-prev{
+    z-index: 999;
     left: 10px !important;
 }
+
+.slick-list{
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+.slick-slide{
+        filter: blur(1px);
+        opacity: .85;
+        transform: scale(0.85);
+}
+.slick-current{
+        filter: none;
+        opacity: 1;
+}
+.slick-center {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        transform: scale(1.1);
+    }
