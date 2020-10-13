@@ -25,7 +25,7 @@
         <br/>
 
         <div class="input-box">
-            <label for="difficultyLevel">Difficulty level</label>
+            <label class="difficultyLevel" for="difficultyLevel">Difficulty level</label>
             <select class="select-field" id="difficultyLevel" name="difficultyLevel" required>
                 <option value="" disabled selected hidden></option>
                 <option th:each="df : ${diflevels}" th:value="${df}"
