@@ -2,6 +2,7 @@ package com.project.sportsRoutesPlanner.service;
 
 import com.project.sportsRoutesPlanner.model.*;
 import com.project.sportsRoutesPlanner.repository.EventRepository;
+import com.project.sportsRoutesPlanner.repository.RouteRepository;
 import com.project.sportsRoutesPlanner.repository.UserRepository;
 import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class EventService {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private RouteRepository routeRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -45,6 +49,11 @@ public class EventService {
             }
         }
         return hikingEvents;
+    }
+
+    public Route findHikingRoute(Integer id){
+       Route route= eventRepository.findById(id).get().getRoute();
+        return route;
     }
 
     public void deleteById(Integer id) {

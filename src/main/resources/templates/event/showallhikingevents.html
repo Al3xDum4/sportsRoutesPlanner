@@ -23,7 +23,8 @@
 <div class="big-container">
 <div class="container" th:each="ev: ${#lists.sort(hikingevents, byEventName)}">
 
-    <div class="blog-card">
+    <div class="blog-card"
+         th:style="'background-image: url(' + @{/event/background/{id} (id=${ev.eventId})} + ');'">
 <!--        <div class="price">-->
 <!--            <span class="money">Price:</span>-->
 <!--        </br>-->
