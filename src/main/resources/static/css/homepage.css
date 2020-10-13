@@ -14,8 +14,8 @@ body {
 }
 
 .carousel-event img {
-    padding-top: 150px;
-    height: 150px;
+    /*padding-top: 150px;*/
+    height: auto;
 }
 
 .home-slick-slider>.slick-prev {
