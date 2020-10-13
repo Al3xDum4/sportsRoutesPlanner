@@ -8,16 +8,21 @@ import com.project.sportsRoutesPlanner.service.RouteService;
 import com.project.sportsRoutesPlanner.service.EventService;
 import com.project.sportsRoutesPlanner.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class EventController {
@@ -46,10 +51,18 @@ public class EventController {
         return "event/showallhikingevents";
     }
 
-    @GetMapping("showhikingevent/{id}")
-    public String showHikingEvent(Model model, @PathVariable Integer id) {
+    @GetMapping(value="showhikingevent/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public String showHikingEvent(Model model, @PathVariable Integer id, HttpServletResponse response) throws IOException {
+        //Optional<Route> route = Optional.ofNullable(routeService.findById(id));
         Event event = eventService.findById(id);
-        Route route=eventService.findRouteByEvent(event.getEventId());
+        Optional<Route> route= Optional.ofNullable(eventService.findRouteByEvent(event.getEventId()));
+        if (route.isPresent()) {
+
+            byte[] image = route.get().getImage();
+
+            StreamUtils.copy(image, response.getOutputStream());
+        }
+
         User guide=eventService.findGuideByEvent(id);
         model.addAttribute("event", event);
         model.addAttribute("route",route);
