@@ -46,3 +46,11 @@ body {
 .slick-slide img{
     width: 100%;
 }
+
+.slick-next{
+    right: 10px;
+}
+
+.slick-prev{
+    left: 10px;
+}
