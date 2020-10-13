@@ -285,7 +285,11 @@ button[type=submit]:hover {
     color: white;
 }
 
-.backgroundimg, difficultylevel {
+.backgroundimg {
+    color: white;
+}
+
+.difficultylevel {
     color: white;
 }
 
