@@ -279,5 +279,8 @@ button[type=submit]:hover {
     padding: 2rem;
     background-color: #333;
     opacity: 0.7;
+}
+
+.input-field {
     color: white;
 }
