@@ -16,10 +16,12 @@
     <button class="prev slick-arrow"> </button>
     <button class="next slick-arrow"> </button>
 </div>
-<div class="carousel-event" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-    <div><img
+<div class="carousel-event">
+    <div>
+        <img
             src="https://images.unsplash.com/photo-1507055993710-c88ddc80ec93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
-            alt="balea"></div>
+            alt="balea">
+    </div>
     <div><img
             src="https://images.unsplash.com/photo-1555837351-17c3ec6f67f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
             alt="buila"></div>
@@ -47,13 +49,15 @@ $('.carousel-event').slick({
     arrows: true,
     dots: false,
     infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
     speed: 300,
-    slidesToShow: 1,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     centerMode: true,
     variableWidth: true,
     prevArrow: $('.prev'),
     nextArrow: $('.next')
-
 });
 
 </script>

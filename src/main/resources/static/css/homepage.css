@@ -31,6 +31,18 @@ body {
     margin: 4rem 0 0 0;
 }
 
+.carousel{
+    width:90%;
+    margin:0px auto;
+}
+.slick-slide{
+    margin:10px;
+}
+.slick-slide img{
+    width:100%;
+    border: 2px solid #fff;
+}
+
 .slick-slide img{
     width: 100%;
 }
