@@ -8,24 +8,24 @@ body {
     opacity: 0.8;
 }
 
-.slick-slide {
+/*.slick-slide {
     width: 10vw;
     box-sizing: border-box;
-}
+}*/
 
 .carousel-event img {
     /*padding-top: 150px;*/
     height: auto;
 }
 
-.home-slick-slider>.slick-prev {
+/*.home-slick-slider>.slick-prev {
   left: 10px;
   z-index: 1;
 }
 .home-slick-slider>.slick-next {
   right: 10px;
   z-index: 1;
-}
+}*/
 
 .container {
     margin: 4rem 0 0 0;
