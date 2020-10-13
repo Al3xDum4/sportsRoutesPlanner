@@ -61,8 +61,6 @@ public class EventController {
         }
     }
 
-
-
     @GetMapping("showhikingevent/{id}")
     public String showHikingEvent(Model model, @PathVariable Integer id) {
         Event event = eventService.findById(id);
