@@ -1,16 +1,22 @@
 package com.project.sportsRoutesPlanner.controller;
 
 import com.project.sportsRoutesPlanner.model.Event;
+import com.project.sportsRoutesPlanner.model.Route;
 import com.project.sportsRoutesPlanner.service.EventService;
 import com.project.sportsRoutesPlanner.service.RouteService;
 import com.project.sportsRoutesPlanner.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class HomepageController {

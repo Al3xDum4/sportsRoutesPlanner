@@ -25,6 +25,7 @@
         <br/>
 
         <div class="input-box">
+            <label class="difficultylevel" for="difficultyLevel">Difficulty level</label>
             <select class="select-field" id="difficultyLevel" name="difficultyLevel" required>
                 <option value="" disabled selected hidden></option>
                 <option th:each="df : ${diflevels}" th:value="${df}"
@@ -57,7 +58,7 @@
         <br/>
 
         <div class="img-box">
-            <label for="routeBackground">Background image</label>
+            <label class="backgroundimg" for="routeBackground">Background image</label>
             <input class="input-field" type="file" id="routeBackground" name="routeBackground" accept="image/*">
             <img id="thumbnail" alt="Background Preview" width="158" height="150" hspace="10">
         </div>
