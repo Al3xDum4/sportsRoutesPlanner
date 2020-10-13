@@ -276,6 +276,7 @@ button[type=submit]:hover {
 }
 
 .form {
+    padding: 2rem;
     background-color: #333;
     opacity: 0.7;
     color: white;
