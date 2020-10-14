@@ -76,6 +76,7 @@ public class SecurityConfig {
                             .antMatchers("/img/**").permitAll()
                             .antMatchers("/fonts/**").permitAll()
                             .antMatchers("/").permitAll()
+                            .antMatchers("/homepage").permitAll()
                             .anyRequest().authenticated()
                             .and()
                         .formLogin()
