@@ -76,6 +76,7 @@ public class SecurityConfig {
                             .antMatchers("/img/**").permitAll()
                             .antMatchers("/fonts/**").permitAll()
                             .antMatchers("/showhomepage").permitAll()
+                            .antMatchers("/js/slick.min.js").permitAll()
                             .antMatchers("/").permitAll()
 
                             .anyRequest().authenticated()
