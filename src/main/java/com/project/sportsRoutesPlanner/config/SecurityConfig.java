@@ -75,7 +75,6 @@ public class SecurityConfig {
                             .antMatchers("/css/**").permitAll()
                             .antMatchers("/img/**").permitAll()
                             .antMatchers("/fonts/**").permitAll()
-//                            .antMatchers("/showhomepage").permitAll()
                             .antMatchers("/js/**").permitAll()
                             .antMatchers("/slick/event/**").permitAll()
                             .antMatchers("/").permitAll()
