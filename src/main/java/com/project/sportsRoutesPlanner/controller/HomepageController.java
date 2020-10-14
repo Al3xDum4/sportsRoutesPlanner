@@ -34,7 +34,7 @@ public class HomepageController {
     @GetMapping("homeallevents")
     public String showAllEvents(Model model) {
         List<Event> eventList = eventService.findAll();
-        model.addAttribute("events", eventList);
+        model.addAttribute("allevents", eventList);
         model.addAttribute("byEventName", Comparator.comparing(Event::getEventName));
         return "homepage/showhomepage";
     }
