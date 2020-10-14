@@ -46,7 +46,7 @@ public class HomepageController {
     }
 
     @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
-    public void fromDatabaseEvent(@PathVariable("id") Integer id, HttpServletResponse response)
+    public void fromDatabaseEventBackground(@PathVariable("id") Integer id, HttpServletResponse response)
             throws IOException {
         Optional<Route> route = Optional.ofNullable(eventService.findHikingRoute(id));
         if (route.isPresent()) {
