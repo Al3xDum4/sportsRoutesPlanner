@@ -12,7 +12,7 @@
     <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
-<div class="carousel-event" th:each="hev: ${#lists.sort(allevents, byEventName)}">
+<div class="carousel-event" th:each="hev: ${allevents}">
     <div class="slick-card" th:style="'background-image: url(' + @{/slick/event/{id} (id=${hev.eventId})} + ');'">
         <div class="event-title" th:text="hev.eventName"></div>
     </div>

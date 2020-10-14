@@ -32,10 +32,10 @@ public class HomepageController {
     private UserService userService;
 
     @GetMapping("homeallevents")
-    public String showAllEvents(Model model) {
+    public String showAllHomeEvents(Model model) {
         List<Event> eventList = eventService.findAll();
         model.addAttribute("allevents", eventList);
-        model.addAttribute("byEventName", Comparator.comparing(Event::getEventName));
+        //model.addAttribute("byEventName", Comparator.comparing(Event::getEventName));
         return "homepage/showhomepage";
     }
 
