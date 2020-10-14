@@ -94,3 +94,7 @@ body {
 .slick-prev:before, .slick-next:before{
     color: #485B5D !important;
 }
+
+.slick-slide:focus{
+    outline: none !important;
+}
