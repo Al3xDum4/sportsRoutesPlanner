@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,10 +32,11 @@ public class HomepageController {
     private UserService userService;
 
     @GetMapping("homeallevents")
-    public String showHomeAllEvents(Model model) {
-        List<Event> eventList = eventService.findAll();
-        model.addAttribute("events", eventList);
-        return "homepage/showhomepage";
+    public String showAllHikingEvents(Model model) {
+        List<Event> hikingEv = eventService.findHikingEvents();
+        model.addAttribute("hikingevents", hikingEv);
+        model.addAttribute("byEventName", Comparator.comparing(Event::getEventName));
+        return "event/showallhikingevents";
     }
 
     @GetMapping("home/event/{id}")
