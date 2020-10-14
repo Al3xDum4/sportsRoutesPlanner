@@ -133,7 +133,7 @@ public class RouteController {
 
     @PostMapping("/edithikingroute/{id}")
     public String editHikingRoute(@ModelAttribute Route route, @PathVariable Integer id,
-                                  @RequestParam("routeBackground") MultipartFile multipartFile) throws IOException {
+                                  @RequestParam("routeBackgroundEdit") MultipartFile multipartFile) throws IOException {
         route.setImage(multipartFile.getBytes());
         route.setRouteCategory(RouteCategory.HIKING);
         routeService.save(route);
