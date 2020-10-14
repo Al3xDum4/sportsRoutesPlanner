@@ -43,6 +43,16 @@ public class HomepageController {
         return "event/showevent";
     }
 
+    @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public void fromDatabaseEvent(@PathVariable("id") Integer id, HttpServletResponse response)
+            throws IOException {
+        Optional<Route> route = Optional.ofNullable(eventService.findHikingRoute(id));
+        if (route.isPresent()) {
+            byte[] image = route.get().getImage();
+            StreamUtils.copy(image, response.getOutputStream());
+        }
+    }
+
     @GetMapping("home/event/{id}/route")
     public String viewEventRoute(Model model, @PathVariable Integer id) {
         model.addAttribute("route", eventService.findRouteByEvent(id));

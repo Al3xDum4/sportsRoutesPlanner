@@ -12,26 +12,25 @@
     <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
-<div class="carousel-event">
-    <div><img
-            src="https://images.unsplash.com/photo-1507055993710-c88ddc80ec93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
-            alt="gregorio">
+<div class="carousel-event" th:each="hev: ${#lists.sort(events, byEventName)}">
+    <div class="slick-card" th:style="'background-image: url(' + @{/slick/event/{id} (id=${hev.eventId})} + ');'">
+        <div class="event-title" th:text="hev.eventName"></div>
     </div>
-    <div><img
-            src="https://images.unsplash.com/photo-1555837351-17c3ec6f67f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt="buila"></div>
-    <div><img
-            src="https://images.unsplash.com/photo-1564391178733-8ac837d7538a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80"
-            alt="buzau"></div>
-    <div><img
-            src="https://images.unsplash.com/photo-1516112173450-2e73c1acc637?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
-            alt="piatracraiului"></div>
-    <div><img
-            src="https://images.unsplash.com/photo-1525272145895-cf08d56090d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt="buces"></div>
-    <div><img
-            src="https://images.unsplash.com/photo-1526112982068-f899a62e118e?ixlib=rb-1.2.1&auto=format&fit=crop&w=968&q=80"
-            alt="transfagarasan"></div>
+<!--    <div><img-->
+    <!--            src="https://images.unsplash.com/photo-1555837351-17c3ec6f67f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"-->
+    <!--            alt="buila"></div>-->
+    <!--    <div><img-->
+    <!--            src="https://images.unsplash.com/photo-1564391178733-8ac837d7538a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80"-->
+    <!--            alt="buzau"></div>-->
+    <!--    <div><img-->
+    <!--            src="https://images.unsplash.com/photo-1516112173450-2e73c1acc637?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"-->
+    <!--            alt="piatracraiului"></div>-->
+    <!--    <div><img-->
+    <!--            src="https://images.unsplash.com/photo-1525272145895-cf08d56090d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"-->
+    <!--            alt="buces"></div>-->
+    <!--    <div><img-->
+    <!--            src="https://images.unsplash.com/photo-1526112982068-f899a62e118e?ixlib=rb-1.2.1&auto=format&fit=crop&w=968&q=80"-->
+    <!--            alt="transfagarasan"></div>-->
 
 </div>
 
