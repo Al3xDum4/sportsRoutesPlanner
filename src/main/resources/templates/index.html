@@ -6,6 +6,10 @@
     <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/299b1a0412.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css" th:href="@{/css/slick.css}"/>
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/slick-theme.css}"/>
+
     <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
@@ -17,5 +21,6 @@
     <a th:href=@{/allguides}>Guides</a>
 </div>
 
+<script type="application/json" th:src="@{/js/slick.min.js}"></script>
 </body>
 </html>
