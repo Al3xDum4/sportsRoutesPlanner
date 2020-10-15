@@ -98,3 +98,9 @@ body {
 .slick-slide:focus{
     outline: none !important;
 }
+
+.linkevent {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
