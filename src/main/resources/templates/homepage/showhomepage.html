@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="carousel-event">
-    <a th:each="hev: ${allevents}" th:href="@{showhikingevent/{id}} (id=${hev.eventId})}">
+    <a th:each="hev: ${allevents}" th:href="@{showevent/{id}} (id=${hev.eventId})}">
         <img th:src="@{/slick/event/{id} (id=${hev.eventId})}" alt="${hev.eventName}">
         <!--        <h3 class="event-title" th:text="${hev.eventName}"></h3>-->
     </a>
