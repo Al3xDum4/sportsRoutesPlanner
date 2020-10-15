@@ -40,7 +40,7 @@ public class HomepageController {
         return "homepage/showhomepage";
     }
 
-    @GetMapping("showevent/{id}")
+    @GetMapping("/event/showevent/{id}")
     public String showEvent(Model model, @PathVariable Integer id) {
         Event event = eventService.findById(id);
         Route route=eventService.findRouteByEvent(event.getEventId());
@@ -48,7 +48,7 @@ public class HomepageController {
         model.addAttribute("event", event);
         model.addAttribute("route",route);
         model.addAttribute("guide",guide);
-        return "./event/showhikingevent";
+        return "event/showhikingevent";
     }
 
     @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)

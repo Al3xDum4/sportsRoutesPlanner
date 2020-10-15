@@ -14,7 +14,7 @@
 <body>
 <div class="carousel-event">
     <div class="slick-card" th:each="hev: ${allevents}">
-        <a class="linkevent" th:href="@{/showevent/{id}} (id=${hev.eventId})}">
+        <a class="linkevent" th:href="@{/event/showevent/{id}} (id=${hev.eventId})}">
             <img th:src="@{/slick/event/{id} (id=${hev.eventId})}" alt="${hev.eventName}">
             <!--        <h3 class="event-title" th:text="${hev.eventName}"></h3>-->
         </a>
