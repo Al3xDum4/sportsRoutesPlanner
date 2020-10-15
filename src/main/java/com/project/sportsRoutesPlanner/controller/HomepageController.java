@@ -48,7 +48,7 @@ public class HomepageController {
         model.addAttribute("event", event);
         model.addAttribute("route",route);
         model.addAttribute("guide",guide);
-        return "event/showhikingevent";
+        return "./event/showhikingevent";
     }
 
     @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
