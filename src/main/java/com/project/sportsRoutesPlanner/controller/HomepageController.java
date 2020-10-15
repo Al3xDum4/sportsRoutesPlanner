@@ -2,6 +2,7 @@ package com.project.sportsRoutesPlanner.controller;
 
 import com.project.sportsRoutesPlanner.model.Event;
 import com.project.sportsRoutesPlanner.model.Route;
+import com.project.sportsRoutesPlanner.model.User;
 import com.project.sportsRoutesPlanner.service.EventService;
 import com.project.sportsRoutesPlanner.service.RouteService;
 import com.project.sportsRoutesPlanner.service.UserService;
@@ -39,10 +40,15 @@ public class HomepageController {
         return "homepage/showhomepage";
     }
 
-    @GetMapping("home/event/{id}")
-    public String viewEvent(Model model, @PathVariable Integer id){
-        model.addAttribute("event", eventService.findById(id));
-        return "event/showevent";
+    @GetMapping("showhikingevent/{id}")
+    public String showHikingEvent(Model model, @PathVariable Integer id) {
+        Event event = eventService.findById(id);
+        Route route=eventService.findRouteByEvent(event.getEventId());
+        User guide=eventService.findGuideByEvent(id);
+        model.addAttribute("event", event);
+        model.addAttribute("route",route);
+        model.addAttribute("guide",guide);
+        return "event/showhikingevent";
     }
 
     @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
