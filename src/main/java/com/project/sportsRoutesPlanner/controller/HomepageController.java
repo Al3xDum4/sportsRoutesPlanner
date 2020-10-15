@@ -40,8 +40,8 @@ public class HomepageController {
         return "homepage/showhomepage";
     }
 
-    @GetMapping("showhikingevent/{id}")
-    public String showHikingEvent(Model model, @PathVariable Integer id) {
+    @GetMapping("showevent/{id}")
+    public String showEvent(Model model, @PathVariable Integer id) {
         Event event = eventService.findById(id);
         Route route=eventService.findRouteByEvent(event.getEventId());
         User guide=eventService.findGuideByEvent(id);
