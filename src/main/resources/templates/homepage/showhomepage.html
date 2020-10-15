@@ -12,8 +12,8 @@
     <nav th:insert="menu.html::menu_nav"></nav>
 </head>
 <body>
-<div class="carousel-event" th:each="hev: ${allevents}">
-    <div>
+<div class="carousel-event">
+    <div th:each="hev: ${allevents}">
         <img th:src="@{/slick/event/{id} (id=${hev.eventId})}" alt="${hev.eventName}">
         <!--        <h3 class="event-title" th:text="${hev.eventName}"></h3>-->
     </div>
