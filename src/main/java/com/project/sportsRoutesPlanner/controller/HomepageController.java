@@ -44,7 +44,7 @@ public class HomepageController {
     @GetMapping("showevent/{id}")
     public ModelAndView showEvent(@PathVariable Integer id) {
         //Event event = eventService.findById(id);
-        ModelAndView modelAndView = new ModelAndView("showhikingevent");
+        ModelAndView modelAndView = new ModelAndView("event/showhikingevent");
         modelAndView.addObject("event", eventService.findById(id));
         return modelAndView;
     }
