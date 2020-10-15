@@ -45,10 +45,7 @@ public class HomepageController {
     public ModelAndView showEvent(@PathVariable Integer id) {
         //Event event = eventService.findById(id);
         ModelAndView modelAndView = new ModelAndView("event/showhikingevent");
-        Event event = eventService.findById(id);
-        Route route=eventService.findRouteByEvent(event.getEventId());
-        User guide=eventService.findGuideByEvent(id);
-        modelAndView.addObject("route", eventService.findById(id).getRoute().getRouteId());
+        modelAndView.addObject("route", eventService.findRouteByEvent(id));
         modelAndView.addObject("guide", eventService.findGuideByEvent(id));
         modelAndView.addObject("event", eventService.findById(id));
         return modelAndView;
