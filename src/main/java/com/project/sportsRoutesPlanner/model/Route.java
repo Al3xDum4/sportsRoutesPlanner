@@ -38,6 +38,4 @@ public class Route {
     @JsonIgnore
     private List<Event> event;
 
-    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL)
-    private List<Photo> photosList;
 }
