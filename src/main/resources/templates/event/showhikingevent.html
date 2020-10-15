@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiking Event Details</title>
 
     <link href="../../static/css/showevents.css" th:href="@{/css/showevents.css}" rel="stylesheet"/>
@@ -14,22 +15,19 @@
     <nav th:insert="menu.html::menu_nav"></nav>
 </div>
 <div class="container">
-
     <div class="container-img"
          th:style="'background-image: url(' + @{/route/image/{id} (id=${route.routeId})} + ');'">
-    </div>
-
-
-    <div class="submit">
-        <p>SignUp ends on:</p>
-        <i class='far fa-calendar-check'></i>
-        <a th:text="${#calendars.format(event.signUpDeadline,'MMMM, dd')}">SignUp Deadline</a>
+        <div class="submit">
+            <p>SignUp ends on:</p>
         </br>
-        </br>
-        <p th:text="'Price: '+${event.price}+'€/person'">Price</p>
-        <button class="btn-submit">Join Event</button>
+            <i class='far fa-calendar-check'></i>
+            <a th:text="${#calendars.format(event.signUpDeadline,'MMMM, dd, yyyy')}">SignUp Deadline</a>
+            </br>
+            </br>
+            <p th:text="'Price: '+${event.price}+'€/person'">Price</p>
+            <button class="btn-submit">Join Event</button>
+        </div>
     </div>
-
 </div>
 
 
@@ -100,7 +98,7 @@
         </tr>
     </table>
 </div>
-</div>
+
 
 </body>
 </html>
