@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -41,10 +42,11 @@ public class HomepageController {
     }
 
     @GetMapping("showevent/{id}")
-    public String showEvent(Model model, @PathVariable Integer id) {
+    public ModelAndView showEvent(@PathVariable Integer id) {
         //Event event = eventService.findById(id);
-        model.addAttribute("event", eventService.findById(id));
-        return "redirect:../event/showhikingevent";
+        ModelAndView modelAndView = new ModelAndView("showhikingevent");
+        modelAndView.addObject("event", eventService.findById(id));
+        return modelAndView;
     }
 
     @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
