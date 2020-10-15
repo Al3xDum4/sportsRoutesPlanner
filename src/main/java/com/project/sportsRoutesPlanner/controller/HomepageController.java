@@ -44,7 +44,7 @@ public class HomepageController {
     public String showEvent(Model model, @PathVariable Integer id) {
         Event event = eventService.findById(id);
         model.addAttribute("event", event);
-        return "../event/showhikingevent";
+        return "redirect:event/showhikingevent";
     }
 
     @GetMapping(value = "/slick/event/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
