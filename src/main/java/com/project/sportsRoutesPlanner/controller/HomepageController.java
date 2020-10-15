@@ -42,8 +42,8 @@ public class HomepageController {
 
     @GetMapping("showevent/{id}")
     public String showEvent(Model model, @PathVariable Integer id) {
-        Event event = eventService.findById(id);
-        model.addAttribute("event", event);
+        //Event event = eventService.findById(id);
+        model.addAttribute("event", eventService.findById(id));
         return "redirect:../event/showhikingevent";
     }
 
